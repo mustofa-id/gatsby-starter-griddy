@@ -1,0 +1,49 @@
+{
+  "name": "gatsby-starter-griddy",
+  "private": true,
+  "description": "A simple starter for artist & photographer showing their work that created with Bulma CSS Framework",
+  "version": "0.0.1",
+  "author": "Habib Mustofa <habib@mustofa.id>",
+  "dependencies": {
+    "bulma": "^0.7.5",
+    "feather-icons": "^4.22.1",
+    "gatsby": "^2.9.4",
+    "gatsby-image": "^2.1.4",
+    "gatsby-plugin-manifest": "^2.1.1",
+    "gatsby-plugin-offline": "^2.1.3",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-plugin-sharp": "^2.1.5",
+    "gatsby-remark-images": "^3.0.16",
+    "gatsby-source-filesystem": "^2.0.39",
+    "gatsby-transformer-remark": "^2.4.0",
+    "gatsby-transformer-sharp": "^2.1.21",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  },
+  "keywords": [
+    "gatsby",
+    "starter",
+    "griddy"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "standard src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mustofa-id/gatsby-starter-griddy"
+  },
+  "bugs": {
+    "url": "https://github.com/mustofa-id/gatsby-starter-griddy/issues"
+  }
+}

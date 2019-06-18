@@ -18,18 +18,26 @@ const IndexPage = () => (
               <img className='is-rounded has-padding-4' src={profilpic} alt='Profile Picture' />
             </figure>
             <div className='profile_info'>
-              <h1 className='title is-3'>
+              <h1 className='title is-3' style={{ marginBottom: '1.9rem' }}>
                 {/* config site title */}
-                Tittle is too long
+                Aflasio
               </h1>
-              <h2 className='subtitle is-6' style={{ marginBottom: '0.8rem' }}>
+              <h2 className='subtitle is-6' style={{ marginBottom: '0.9rem' }}>
                 {/* config description */}
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry
               </h2>
-              <span className='button is-static is-small is-unset-border'>
-                {/* config location */}
-                Indonesia
-              </span>
+              {/* button menu */}
+              <div className='field buttons has-addons is-centered' style={{ marginTop: '0.8rem' }}>
+                <a className='button'>
+                  Gallery
+                </a>
+                <a className='button'>
+                  Blog
+                </a>
+                <a className='button'>
+                  About
+                </a>
+              </div>
             </div>
           </div>
         </div>

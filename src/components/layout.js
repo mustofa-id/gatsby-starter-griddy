@@ -1,12 +1,11 @@
 import React from 'react'
-import Navbar from './navbar'
 import SEO from './seo'
 
 const Layout = ({ title, description, children, keywords }) => (
   <>
     <SEO keywords={keywords} title={title} description={description} />
     <header>
-      <Navbar />
+      {/* navbar follow the leader on https://mustofa.id */}
     </header>
     <main>{children}</main>
     <footer className='footer'>

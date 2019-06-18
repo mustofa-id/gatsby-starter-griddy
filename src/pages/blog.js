@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 
 const Blog = props => (
   <Layout title='Blog'>
-    <article className='hero is-fullheight'>
+    <article className='hero is-fullheight is-light'>
       <div className='hero-body'>
         <div className='container has-text-centered'>
           <p className='title'>Blog here!</p>

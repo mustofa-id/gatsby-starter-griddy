@@ -1,1 +1,135 @@
 // Our custom style here
+
+/* scrollbar style on chrome & opera */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.274); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.459); 
+}
+
+/* scrollbar for firefox */
+html {
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  }
+  
+// footer
+.footer {
+  padding: 3rem 1.5rem 3rem;
+  background-color: whitesmoke
+}
+
+// bg-shadow
+.has-bg-shadow {
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,.18);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,.18);
+          box-shadow: 0 0 10px rgba(0,0,0,.18);
+}
+
+// rounded corner
+.has-rounded-corner {
+  border-radius: 10px;
+}
+
+// cover pic
+.coverpic {
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+.coverbox {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 1.1rem;
+  margin-top: 2.5rem;
+  
+}
+
+@media screen and (min-width: 1024px) {
+ .coverbox {
+  margin-right: 2rem;
+  margin-left: 2rem;
+ }
+}
+
+// profile pic
+.has-image-centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+#profile_pic {
+  bottom: 4rem;
+}
+.has-padding-4 {
+  background: white;
+  padding: 4px;
+}
+
+// profil info
+.profile_info {
+  margin-top: -3.3rem;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+// container
+.container {
+  margin: 0 auto;
+  position: relative;
+}
+
+@media screen and (min-width: 1088px) {
+  .container {
+    max-width: 960px;
+    width: 960px;
+  }
+  .container.is-fluid {
+    margin-left: 64px;
+    margin-right: 64px;
+    max-width: none;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .container.is-widescreen {
+    max-width: 1152px;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 1471px) {
+  .container.is-fullhd {
+    max-width: 1344px;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1152px;
+    width: 1152px;
+  }
+}
+
+@media screen and (min-width: 1472px) {
+  .container {
+    max-width: 1344px;
+    width: 1344px;
+  }
+}
+
+// button
+.is-unset-border {
+  border: unset;
+}

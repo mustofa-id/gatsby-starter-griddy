@@ -17,7 +17,7 @@ const Navbar = props => {
       <>
         <Helmet bodyAttributes={{ className: 'has-navbar-fixed-top' }} />
         <nav
-          className='navbar has-shadow is-fixed-top is-white'
+          className='navbar is-fixed-top is-white has-bg-shadow'
           role='navigation'
           aria-label='main navigation'>
           <div className='container'>

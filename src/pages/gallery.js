@@ -1,16 +1,16 @@
 import React from 'react'
 import Layout from '../components/layout'
 
-const Friends = props => (
-  <Layout title='Friends'>
+const Blog = props => (
+  <Layout title='Blog'>
     <article className='hero is-fullheight is-light'>
       <div className='hero-body'>
         <div className='container has-text-centered'>
-          <p className='title'>Friends list here!</p>
+          <p className='title'>Gallery here!</p>
         </div>
       </div>
     </article>
   </Layout>
 )
 
-export default Friends
+export default Blog

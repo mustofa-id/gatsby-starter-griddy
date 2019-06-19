@@ -1,8 +1,8 @@
 const menuItemsStart = [
   // href should be match with file name in src/pages
-  { name: 'Blog', href: '/blog' },
-  { name: 'About', href: '/about' },
-  { name: 'Friends', href: '/friends' }
+  { name: 'Gallery', href: '/gallery', icon: 'image' },
+  { name: 'Blog', href: '/blog', icon: 'book' },
+  { name: 'About', href: '/about', icon: 'user' }
 ]
 
 const menuItemsEnd = [

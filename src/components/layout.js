@@ -1,36 +1,22 @@
 import React from 'react'
 import SEO from './seo'
+import Navbar from './navbar'
+import Footer from './footer'
 
-const Layout = ({ title, description, children, keywords }) => (
+const Layout = ({
+  title,
+  description,
+  children,
+  keywords,
+  navless,
+  footless
+}) => (
   <>
     <SEO keywords={keywords} title={title} description={description} />
-    <header>
-      {/* navbar follow the leader on https://mustofa.id */}
-    </header>
+    {!navless && <Navbar />}
     <main>{children}</main>
-    <footer className='footer'>
-      <Footer />
-    </footer>
+    {!footless && <Footer />}
   </>
-)
-
-const Footer = () => (
-  <div className='content has-text-centered'>
-    <p>
-      {/**
-       * You are permitted to change the copyright name and url.
-       * If you url is local (eg. /) it's better use Link components
-       * from Gatsby. Example: <Link to='/'>mustofa.id</Link>
-       */}
-      © 2018-2019 <a href='https://mustofa.id'>mustofa.id</a>
-      <br />
-      Powered by <a href='https://www.gatsbyjs.org/'>Gatsby</a> and{' '}
-      <a href='https://bulma.io'>Bulma</a>
-      <br />
-      Starter source code is available on{' '}
-      <a href='https://github.com/mustofa-id/gatsby-starter-griddy'>Github</a>
-    </p>
-  </div>
 )
 
 export default Layout

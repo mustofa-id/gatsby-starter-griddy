@@ -1,3 +1,4 @@
+// we need to use the navbar from https://mustofa.id/blog
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link, graphql, StaticQuery } from 'gatsby'

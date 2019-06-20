@@ -13,22 +13,31 @@ const BlogPost = ({ data, location }) => {
 
   return (
     <Layout title={title} description={excerpt} keywords={keywords} image={ogImage} >
-      <div className='sectiom'>
-        {/* Cover image */}
-        <Img fluid={fluid} />
-      </div>
-      <div className='section has-text-centered'>
-        {/* Post title */}
-        <h1 className='title' >{title}</h1>
-        <p className='subtitle'>{`${date} - ${timeToRead} min read - ${category}`}</p>
-      </div>
-      <div className='section'>
-        <div className='container'>
-          {/* Post detail / html */}
-          <span
-            className='content'
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+      <div className='hero is-fullheight is-light'>
+        <div className='hero-body' style={{ paddingBottom: '0' }}>
+          <div className='container'>
+            {/* box for the post */}
+            <div className='box has-bg-shadow has-rounded-corner is-paddingless' style={{ marginTop: '2rem' }}>
+              <figure className='image'>
+                {/* cover image */}
+                <Img
+                  fluid={fluid}
+                  className='coverpic'
+                  alt='cover post' />
+              </figure>
+              <div className='content has-content-padding'>
+                {/* title post and short info */}
+                <h1 className='title is-3 has-text-centered' style={{ marginBottom: '1rem' }}>{title}</h1>
+                <p className='title is-7 has-text-grey is-post-detail' style={{ marginBottom: '2.5rem' }}>{`${date} - ${timeToRead} min read - ${category}`}</p>
+                {/* content of the post */}
+                <article
+                  dangerouslySetInnerHTML={{ __html: html }}
+                />
+                {/* we need to put hastag of the post here */}
+                {/* we need tu put the next-love-prev button like https://mustofa.id/blog/ here */}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

@@ -10,6 +10,4 @@ tags:
 category: Digital Painting
 cover: razan.jpg
 ---
-![Razan al-Najjar](razan.jpg)
-
 This is my tribute to Razan al-Najjar, a Palestinian nurse volunteering in the Gaza health ministry that died by gunshot on 1 June 2018 (aged 21)

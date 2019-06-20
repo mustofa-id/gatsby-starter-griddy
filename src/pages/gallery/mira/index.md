@@ -12,6 +12,4 @@ category: Digital Painting
 cover: mira.jpg
 ---
 
-![Mira](mira.jpg)
-
 Mira is a fantasy place that i create for my comic project long time ago. It's a planet from another dimension that has three satelites. In fact, it's connected with the earth, the world as we know "the astral world"

@@ -16,6 +16,7 @@ const Gallery = ({ data }) => {
         <div className='hero-body'>
           <div className='container has-text-centered'>
             <div className='columns is-centered is-multiline'>
+              {/* take a look at this: https://www.npmjs.com/package/react-masonry-css */}
               {[...dummyData, ...edges].map(e => (
                 <GalleryItem key={e.node.id} node={e.node} />
               ))}

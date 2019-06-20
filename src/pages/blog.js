@@ -27,19 +27,19 @@ const BlogItem = ({ node }) => {
   const { title, date, category, timeToRead, cover } = frontmatter
   return (
     <Link className='column is-one-third is-flex' to={fields.slug}>
-      <div className='box is-paddingless'>
+      <div className='box is-paddingless has-rounded-corner has-bg-shadow'>
         <Img
-          style={{ borderRadius: '6px 6px 0 0' }}
+          style={{ borderRadius: '10px 10px 0 0' }}
           fluid={cover.childImageSharp.fluid}
         />
         <div className='media-content' style={{ padding: '1rem' }}>
           <div className='content'>
-            <p>
+            <p style={{ marginBottom: '0.5em' }}>
               <strong>{title}</strong>
             </p>
-            <p>{excerpt}</p>
+            <p className='is-size-6' style={{ marginBottom: '0.5em' }}>{excerpt}</p>
             <p className='is-size-7'>
-              {date} di <strong>{category}</strong> · {timeToRead} menit baca
+              {date} in <strong>{category}</strong> · {timeToRead} min read
             </p>
           </div>
         </div>

@@ -10,13 +10,11 @@ category: Downloads
 cover: palette.png
 ---
 
-![Flat Palette](palette.png)
-
 This is flat color palette for inkscape that i make with `picking colors` from the internet.
 
 ### Install
 
-[<button name="button">Download Here</button>](/assets/FlatbySira.gpl)
+[<button class="button is-light" name="button">Download Here</button>](/assets/FlatbySira.gpl)
 
 ### Windows
 Copy file to `User Name\Program Files\Inkscape\share\palettes`

@@ -61,6 +61,11 @@ html {
  }
 }
 
+// box content
+.box {
+  width: 100%;
+}
+
 // profile pic
 .has-image-centered {
   margin-left: auto;
@@ -131,4 +136,61 @@ html {
 // button
 .is-unset-border {
   border: unset;
+}
+
+// content padding on the box is-paddingless
+.has-content-padding {
+  padding: 2rem;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 500px) {
+.has-content-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 0;
+  }
+}
+
+// fix article element width not working on mobile screen
+article, aside, figure, footer, header, hgroup, section {
+    display: grid;
+}
+
+// video container
+.video-container {
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.video-container iframe {
+  height: 300px;
+  width: 900px;
+}
+
+// for post detail
+.is-post-detail {
+  overflow: hidden;
+  text-align: center;
+}
+
+.is-post-detail:before,
+.is-post-detail:after {
+  background-color: hsl(0, 0%, 86%);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.is-post-detail:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.is-post-detail:after {
+  left: 0.5em;
+  margin-right: -50%;
 }

@@ -22,6 +22,7 @@ const IndexPage = ({ data }) => {
                 />
               </figure>
               <figure
+              // we need to add gatsby-image to this
                 id='profile_pic'
                 className='image is-128x128 has-image-centered'>
                 <img

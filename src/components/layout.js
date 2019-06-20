@@ -6,13 +6,14 @@ import Footer from './footer'
 const Layout = ({
   title,
   description,
-  children,
   keywords,
+  image,
   navless,
-  footless
+  footless,
+  children
 }) => (
   <>
-    <SEO keywords={keywords} title={title} description={description} />
+    <SEO keywords={keywords} title={title} description={description} image={image} />
     {!navless && <Navbar />}
     <main>{children}</main>
     {!footless && <Footer />}

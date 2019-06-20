@@ -7,8 +7,8 @@ tags:
   - white
   - balloons
   - palestine
-categories: Digital Painting
-thumbnail: thumb.jpg
+category: Digital Painting
+cover: razan.jpg
 ---
 ![Razan al-Najjar](razan.jpg)
 

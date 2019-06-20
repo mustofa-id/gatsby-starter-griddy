@@ -6,10 +6,9 @@ tags:
   - squoosh
   - kompres
   - ukurangambar
-categories: Opini
+category: Opini
+cover: squooshonline.png
 ---
-
-
 
 <div class="video-container"><iframe src="https://www.youtube.com/embed/ipNW6lJHVEs" frameborder="0" allowfullscreen></iframe></div>
 

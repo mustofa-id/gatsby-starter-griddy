@@ -6,7 +6,8 @@ tags:
   - inkscape
   - flat colors
   - downloads
-categories: Downloads
+category: Downloads
+cover: palette.png
 ---
 
 ![Flat Palette](palette.png)

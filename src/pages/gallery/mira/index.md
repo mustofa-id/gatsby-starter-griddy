@@ -8,8 +8,8 @@ tags:
   - purple land
   - fantasy world
   - other world
-categories: Digital Painting
-thumbnail: thumb.jpg
+category: Digital Painting
+cover: mira.jpg
 ---
 
 ![Mira](mira.jpg)

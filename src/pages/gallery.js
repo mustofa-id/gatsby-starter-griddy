@@ -1,30 +1,50 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import Layout from '../components/layout'
+import { filter, queryWithType } from '../shared/post-filter'
+import Footer from '../components/footer'
+import Navbar from '../components/navbar'
+import SEO from '../components/seo'
+import { edgesToCategories } from '../shared/util'
 
-const Gallery = ({ data }) => {
-  const { edges } = data.gallery
+const title = 'Gallery'
 
-  // Example fake data
-  const dummyData = [...edges, ...edges]
-  dummyData.reverse()
+const Gallery = ({ data, location }) => {
+  let { edges } = data.gallery
+
+  // Get all categiries from edges
+  const categories = edgesToCategories(edges)
+
+  // Filter post items by url query
+  edges = filter(edges, location)
 
   return (
-    <Layout title='Gallery'>
-      <article className='hero is-fullheight is-light'>
-        <div className='hero-body'>
-          <div className='container has-text-centered'>
-            <div className='columns is-centered is-multiline'>
-              {/* take a look at this: https://www.npmjs.com/package/react-masonry-css */}
-              {[...dummyData, ...edges].map(e => (
-                <GalleryItem key={e.node.id} node={e.node} />
-              ))}
+    <>
+      <SEO title={title} />
+      <header>
+        <Navbar
+          title={title}
+          type='gallery'
+          subtitle={queryWithType}
+          categories={categories}
+        />
+      </header>
+      <main>
+        <article className='hero is-fullheight is-light'>
+          <div className='hero-body'>
+            <div className='container has-text-centered'>
+              <div className='columns is-centered is-multiline'>
+                {/* take a look at this: https://www.npmjs.com/package/react-masonry-css */}
+                {edges.map(e => (
+                  <GalleryItem key={e.node.id} node={e.node} />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </article>
-    </Layout>
+        </article>
+      </main>
+      <Footer />
+    </>
   )
 }
 
@@ -32,7 +52,7 @@ const GalleryItem = ({ node }) => {
   const { fields, excerpt, frontmatter } = node
   const { title, date, category, timeToRead, cover } = frontmatter
 
-  console.log(excerpt, title, date, category, timeToRead)
+  console.log(excerpt, title, date, category, timeToRead) // TODO: Delete this line if variables used
 
   return (
     <Link className='column is-one-third' to={fields.slug}>

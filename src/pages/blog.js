@@ -1,24 +1,49 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import Layout from '../components/layout'
 import { graphql, Link } from 'gatsby'
+import { filter, queryWithType } from '../shared/post-filter'
+import { edgesToCategories } from '../shared/util'
+import SEO from '../components/seo'
+import Navbar from '../components/navbar'
+import Footer from '../components/footer'
 
-const Blog = ({ data }) => {
-  const { edges } = data.blog
+const title = 'Blog'
+
+const Blog = ({ data, location }) => {
+  let { edges } = data.blog
+
+  // Get all categiries from edges
+  const categories = edgesToCategories(edges)
+
+  // Filter post items by url query
+  edges = filter(edges, location)
+
   return (
-    <Layout title='Blog'>
-      <article className='hero is-fullheight is-light'>
-        <div className='hero-body'>
-          <div className='container has-text-centered'>
-            <div className='columns is-centered is-multiline'>
-              {edges.map(e => (
-                <BlogItem key={e.node.id} node={e.node} />
-              ))}
+    <>
+      <SEO title={title} />
+      <header>
+        <Navbar
+          title={title}
+          subtitle={queryWithType}
+          type='blog'
+          categories={categories}
+        />
+      </header>
+      <main>
+        <article className='hero is-fullheight is-light'>
+          <div className='hero-body'>
+            <div className='container has-text-centered'>
+              <div className='columns is-centered is-multiline'>
+                {edges.map(e => (
+                  <BlogItem key={e.node.id} node={e.node} />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </article>
-    </Layout>
+        </article>
+      </main>
+      <Footer />
+    </>
   )
 }
 
@@ -37,7 +62,9 @@ const BlogItem = ({ node }) => {
             <p style={{ marginBottom: '0.5em' }}>
               <strong>{title}</strong>
             </p>
-            <p className='is-size-6' style={{ marginBottom: '0.5em' }}>{excerpt}</p>
+            <p className='is-size-6' style={{ marginBottom: '0.5em' }}>
+              {excerpt}
+            </p>
             <p className='is-size-7'>
               {date} in <strong>{category}</strong> · {timeToRead} min read
             </p>

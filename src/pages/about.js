@@ -1,8 +1,9 @@
 import React from 'react'
-import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 const About = props => (
-  <Layout title='About'>
+  <>
+    <SEO title='About' />
     <article className='hero is-fullheight is-light'>
       <div className='hero-body'>
         <div className='container has-text-centered'>
@@ -10,7 +11,7 @@ const About = props => (
         </div>
       </div>
     </article>
-  </Layout>
+  </>
 )
 
 export default About

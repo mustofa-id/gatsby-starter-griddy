@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# --> WOY: Bash version 4.0+ required!
+# --> USING: bash mpost -b "My New Post Title"
+
+# Check first params (as post type)
+if [ -z "$1" ]; then
+	echo 'error: Post type (-b or -g) is required'
+	echo 'example: bash mpost -b "My New Post Title"'
+	exit 1
+fi
+
+# Validating first params
+if [ $1 != "-b" ] && [ $1 != "-g" ]; then
+	echo 'error: Invalid params '$1
+	echo 'accepted: -b for blog or -g for gallery'
+	exit 1
+fi
+
+# Check second params (as post title)
+if [ -z "$2" ]; then
+	echo 'error: Post title is required'
+	echo 'example: bash mpost -b "My New Post Title"'
+	exit 1
+fi
+
+# Set pages directory
+PAGES_DIR="src/pages"
+
+# Post type
+POST_TYPE="blog"
+
+if [ "$1" == "-g" ]; then
+	POST_TYPE="gallery"
+fi
+
+# Get title from first param
+TITLE="$2"
+
+# Format current date
+DATE=`date '+%Y-%m-%d %H:%M:%S'`
+
+# Convert title to folder name
+TARGET="${TITLE// /-}"
+
+# Make target lowercase for consist folder name
+TARGET="${TARGET,,}"
+
+# Append pages directory, type, and target
+TARGET="$PAGES_DIR/$POST_TYPE/$TARGET"
+
+# Create folder recursively
+mkdir -p "$TARGET"
+
+# Write multiline string to index.md file in target directory
+cat > $TARGET/index.md <<- EOM
+---
+title: $TITLE
+date: $DATE
+tags:
+category:
+cover:
+---
+
+EOM

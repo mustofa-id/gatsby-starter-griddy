@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
     <>
       {/* Add seo props as you wish */}
       <SEO />
-      <main>
+      <main className='fade-in'>
         <article className='hero is-fullheight is-light'>
           <div className='hero-body'>
             <div className='container has-text-centered'>

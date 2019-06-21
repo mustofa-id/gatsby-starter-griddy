@@ -29,7 +29,7 @@ const Gallery = ({ data, location }) => {
           categories={categories}
         />
       </header>
-      <main>
+      <main className='fade-in'>
         <article className='hero is-fullheight is-light'>
           <div className='hero-body'>
             <div className='container has-text-centered'>

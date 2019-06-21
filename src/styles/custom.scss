@@ -54,13 +54,6 @@ html {
   
 }
 
-@media screen and (min-width: 1024px) {
- .coverbox {
-  margin-right: 2rem;
-  margin-left: 2rem;
- }
-}
-
 // box content
 .box {
   width: 100%;
@@ -159,13 +152,23 @@ article, aside, figure, footer, header, hgroup, section {
 
 // video container
 .video-container {
-  text-align: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
 }
+ 
 .video-container iframe {
-  height: 300px;
-  width: 900px;
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+ 
+/* 4x3 Aspect Ratio */
+.video-container-4x3 {
+  padding-top: 75%;
 }
 
 // for post detail

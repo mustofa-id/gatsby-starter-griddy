@@ -30,13 +30,12 @@ const GalleryPost = ({ data, location }) => {
         />
       </header>
       <main>
-        <div className='hero is-fullheight is-light'>
+        <div className='hero is-light'>
           <div className='hero-body' style={{ paddingBottom: '0' }}>
             <div className='container'>
               {/* box for gallery post */}
               <div
-                className='box has-bg-shadow has-rounded-corner is-paddingless'
-                style={{ marginTop: '2rem' }}>
+                className='box has-bg-shadow has-rounded-corner is-paddingless'>
                 <figure className='image'>
                   {/* cover image */}
                   <Img fluid={fluid} className='coverpic' alt='cover post' />
@@ -58,7 +57,8 @@ const GalleryPost = ({ data, location }) => {
                   </p>
                   <hr style={{ marginTop: '0' }} />
                   {/* content of the post */}
-                  <article dangerouslySetInnerHTML={{ __html: html }} />
+                  <article dangerouslySetInnerHTML={{ __html: html }}
+                    style={{ marginBottom: '1rem' }} />
                   {/* hastag */}
                   <Hashtag type={paramType} tags={tags} />
                   {/* we need tu put the next-love-prev button like https://mustofa.id/blog/ here */}

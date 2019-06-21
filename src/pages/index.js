@@ -43,12 +43,12 @@ const IndexPage = ({ data }) => {
                     {description}
                   </h2>
                   <div
-                    className='field buttons has-addons is-centered'
+                    className='buttons is-centered'
                     style={{ marginTop: '0.8rem' }}>
                     {/* If wanna use button with icon you can use IconButton instead of Link */}
                     {nav.map((item, index) => (
                       <Link
-                        className='button'
+                        className='button is-light'
                         key={`${index}--${item.name}`}
                         to={item.href}>
                         {item.name}
@@ -60,6 +60,29 @@ const IndexPage = ({ data }) => {
                       //   icon={item.icon}
                       // />
                     ))}
+                  </div>
+                  <div className='content has-content-padding'
+                    style={{
+                      paddingTop: '0'
+                    }}>
+                    <p className='title is-5 is-post-detail'>
+                      What is Lorem Ipsum?
+                    </p>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                      when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                    <p className='title is-5 is-post-detail'>
+                      Why do we use it?
+                    </p>
+                    <p>
+                      It is a long established fact that a reader will be distracted by the
+                      readable content of a page when looking at its layout.
+                      The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                      as opposed to using 'Content here, content here', making it look like readable English.
+                    </p>
+                    {/* put the social media icon here */}
                   </div>
                 </div>
               </div>

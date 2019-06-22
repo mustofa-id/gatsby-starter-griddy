@@ -57,10 +57,7 @@ const IndexPage = ({ data }) => {
                       </Link>
                     ))}
                   </div>
-                  <div className='content has-content-padding'
-                    style={{
-                      paddingTop: '0'
-                    }}>
+                  <div className='content has-content-padding'>
                     <p className='title is-5 is-post-detail'>
                       What is Lorem Ipsum?
                     </p>
@@ -69,7 +66,8 @@ const IndexPage = ({ data }) => {
                       Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                       when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </p>
-                    <p className='title is-5 is-post-detail'>
+                    <p className='title is-5 is-post-detail'
+                      style={{ paddingTop: '1rem' }}>
                       Why do we use it?
                     </p>
                     <p>

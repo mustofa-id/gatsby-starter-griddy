@@ -13,7 +13,7 @@ const title = 'Blog'
 // Screen width break point for masonry
 const masonryBreakpoint = {
   default: 4,
-  1000: 3,
+  1300: 3,
   850: 2,
   500: 1
 }
@@ -36,7 +36,7 @@ const Blog = ({ data, location }) => {
         </Navbar>
       </header>
       <main className='fade-in'>
-        <article className='hero is-fullheight is-light'>
+        <article className='hero is-light'>
           <div className='hero-body'>
             <div className='container has-text-centered'>
               <Masonry breakpoint={masonryBreakpoint}>
@@ -59,7 +59,7 @@ const BlogItem = ({ node }) => {
   return (
     <Link to={fields.slug}>
       <div
-        className='box is-paddingless has-rounded-corner has-bg-shadow'
+        className='box is-paddingless has-rounded-corner has-bg-shadow has-hover-effect'
         style={{ marginBottom: '1rem' }}>
         <Img
           style={{ borderRadius: '10px 10px 0 0' }}

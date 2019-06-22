@@ -36,16 +36,21 @@ const socialLink = [
     icon: 'facebook'
   },
   {
-    name: 'Instagram',
-    href: 'https://link.mustofa.id/fb',
-    icon: 'instagram'
-  },
-  {
     name: 'Twitter',
     href: 'https://link.mustofa.id/fb',
     icon: 'twitter'
+  },
+  {
+    name: 'Artstation',
+    href: 'https://link.mustofa.id/fb',
+    icon: 'artstation'
+  },
+  {
+    name: 'Deviantart',
+    href: 'https://link.mustofa.id/fb',
+    icon: 'deviantart'
   }
-  // Add social link here as much as you want
+  // Social media available: facebook, instagram, twitter, artstation, behance, deviantart, dribbble
 ]
 
 exports.siteMetadata = {

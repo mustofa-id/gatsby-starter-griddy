@@ -198,6 +198,7 @@ article, aside, figure, footer, header, hgroup, section {
   margin-right: -50%;
 }
 
+// masonry view
 .is-masonry {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -209,4 +210,72 @@ article, aside, figure, footer, header, hgroup, section {
 .is-masonry-column {
   padding-left: 1rem;
   background-clip: padding-box;
+}
+
+// hover on blog index
+.has-hover-effect {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+}
+
+// caption gallery
+.wrapper{
+width: 100%;
+margin: 0 auto;
+position:relative;
+}
+.thumb{
+opacity: 1;
+display: block;
+width:100%;
+height: auto;
+transition: .2s ease;
+}
+.caption{
+position: absolute;
+top:50%;
+left: 50%;
+transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+text-transform: uppercase;
+width: 90%;
+overflow: hidden;
+}
+.overlay{
+opacity: 0
+}
+.wrapper:hover .thumb{
+opacity: .2
+}
+.wrapper:hover .overlay{
+opacity: 1
+}
+
+// caption post detail
+.is-caption-detail {
+  overflow: hidden;
+  text-align: center;
+}
+
+.is-caption-detail:before,
+.is-caption-detail:after {
+  background-color: hsla(0, 0%, 0%, 0.418);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 7%;
+}
+
+.is-caption-detail:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.is-caption-detail:after {
+  left: 0.5em;
+  margin-right: -50%;
 }

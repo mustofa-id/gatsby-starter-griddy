@@ -12,7 +12,8 @@ import Masonry from '../components/widget/masonry'
 const title = 'Gallery'
 // Screen width break point for masonry
 const masonryBreakpoint = {
-  default: 3,
+  default: 4,
+  1300: 3,
   850: 2,
   500: 1
 }
@@ -35,7 +36,7 @@ const Gallery = ({ data, location }) => {
         </Navbar>
       </header>
       <main className='fade-in'>
-        <article className='hero is-fullheight is-light'>
+        <article className='hero is-light'>
           <div className='hero-body'>
             <div className='container has-text-centered'>
               <Masonry breakpoint={masonryBreakpoint}>
@@ -60,11 +61,19 @@ const GalleryItem = ({ node }) => {
 
   return (
     <Link to={fields.slug}>
-      <div className='box is-paddingless' style={{ marginBottom: '1rem' }}>
-        <Img
-          style={{ borderRadius: '6px 6px 6px 6px' }}
-          fluid={cover.childImageSharp.fluid}
-        />
+      <div className='wrapper'>
+        <figure className='image has-rounded-corner has-bg-shadow has-hover-effect' style={{ marginBottom: '1rem' }}>
+          <Img
+            className='has-rounded-corner thumb'
+            fluid={cover.childImageSharp.fluid}
+          />
+          <div className='overlay'>
+            <div className='caption'>
+              <h1 className='title is-6'>{title}</h1>
+              <p className='subtitle is-7 is-caption-detail'>view</p>
+            </div>
+          </div>
+        </figure>
       </div>
     </Link>
   )

@@ -1,26 +1,26 @@
 #!/bin/bash
 
 # --> WOY: Bash version 4.0+ required!
-# --> USING: bash mpost -b "My New Post Title"
+# --> USING: bash mkpost -b "My New Post Title"
 
 # Check first params (as post type)
 if [ -z "$1" ]; then
-	echo 'error: Post type (-b or -g) is required'
-	echo 'example: bash mpost -b "My New Post Title"'
+	echo '⚠ Post type (-b or -g) is required'
+	echo 'example: bash mkpost -b "My New Post Title"'
 	exit 1
 fi
 
 # Validating first params
 if [ $1 != "-b" ] && [ $1 != "-g" ]; then
-	echo 'error: Invalid params '$1
+	echo '⚠ Invalid params '$1
 	echo 'accepted: -b for blog or -g for gallery'
 	exit 1
 fi
 
 # Check second params (as post title)
 if [ -z "$2" ]; then
-	echo 'error: Post title is required'
-	echo 'example: bash mpost -b "My New Post Title"'
+	echo '⚠ Post title is required'
+	echo 'example: bash mkpost -b "My New Post Title"'
 	exit 1
 fi
 
@@ -40,14 +40,27 @@ TITLE="$2"
 # Format current date
 DATE=`date '+%Y-%m-%d %H:%M:%S'`
 
+# Remove character in title expect letters and numbers
+TARGET=$(echo $TITLE | tr -d -c '[:alnum:][:space:]')
+
+# Limit only 5 words
+TARGET=$(echo $TARGET | sed -r 's@^(\S+\s+\S+\s+\S+\s+\S+\s+\S+).*@\1@')
+
 # Convert title to folder name
-TARGET="${TITLE// /-}"
+TARGET="${TARGET// /-}"
 
 # Make target lowercase for consist folder name
 TARGET="${TARGET,,}"
 
 # Append pages directory, type, and target
 TARGET="$PAGES_DIR/$POST_TYPE/$TARGET"
+
+# Check if target folder is exists
+if [ -d "$TARGET" ]; then
+	echo '⚠ Post url/directory already exists'
+	echo "url: $TARGET"
+	exit 1
+fi
 
 # Create folder recursively
 mkdir -p "$TARGET"
@@ -63,3 +76,14 @@ cover:
 ---
 
 EOM
+
+# Ask to open index file
+read -e -p "Do you wanna open the index.md file 🧐? [y/n]: " ANSWER
+
+if [[ ${ANSWER,,} =~ ^(y|yes|ya|ok)$ ]]; then
+	echo "🚀"
+	# Open index.md file with default makrdown editor in environment
+	xdg-open $TARGET/index.md
+else
+	echo "😭"
+fi

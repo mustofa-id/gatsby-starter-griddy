@@ -6,6 +6,7 @@ import { edgesToCategories } from '../shared/util'
 import SEO from '../components/seo'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
+import Category from '../components/widget/category'
 
 const title = 'Blog'
 
@@ -22,12 +23,9 @@ const Blog = ({ data, location }) => {
     <>
       <SEO title={title} />
       <header>
-        <Navbar
-          title={title}
-          subtitle={queryWithType}
-          type='blog'
-          categories={categories}
-        />
+        <Navbar title={title} subtitle={queryWithType}>
+          <Category categories={categories} type='blog' />
+        </Navbar>
       </header>
       <main className='fade-in'>
         <article className='hero is-fullheight is-light'>

@@ -3,9 +3,22 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import Icon from './widget/icon'
-import Category from './widget/category'
 
-const Navbar = ({ backTo = '/', title, subtitle, categories, type }) => {
+const BurgerButton = ({ onClick, isActive }) => (
+  <div
+    onClick={onClick}
+    role='button'
+    className={`navbar-burger burger${isActive ? ' is-active' : ''}`}
+    aria-label='menu'
+    aria-expanded='false'
+    data-target='griddy-nav-menu'>
+    <span aria-hidden='true' />
+    <span aria-hidden='true' />
+    <span aria-hidden='true' />
+  </div>
+)
+
+const Navbar = ({ backTo = '/', title, subtitle, children }) => {
   const [menuShown, setMenuShown] = useState(false)
 
   function toggleMenu () {
@@ -14,7 +27,7 @@ const Navbar = ({ backTo = '/', title, subtitle, categories, type }) => {
 
   return (
     <>
-      <Helmet bodyAttributes={{ className: 'has-navbar-fixed-top' }} />
+      <Helmet bodyAttributes={{ class: 'has-navbar-fixed-top' }} />
       <nav
         className='navbar is-fixed-top is-white has-bg-shadow'
         role='navigation'
@@ -28,30 +41,20 @@ const Navbar = ({ backTo = '/', title, subtitle, categories, type }) => {
               <span>
                 {title}
                 {subtitle && (
-                  <span className='has-text-grey'>&nbsp;{subtitle}</span>
+                  <span className='has-text-grey'>{` ${subtitle}`}</span>
                 )}
               </span>
             </div>
             {/* Burger button */}
-            <div
-              onClick={toggleMenu}
-              role='button'
-              className={`navbar-burger burger${menuShown ? ' is-active' : ''}`}
-              aria-label='menu'
-              aria-expanded='false'
-              data-target='griddy-nav-menu'>
-              <span aria-hidden='true' />
-              <span aria-hidden='true' />
-              <span aria-hidden='true' />
-            </div>
+            {children ? (
+              <BurgerButton onClick={toggleMenu} isActive={menuShown} />
+            ) : null}
           </div>
           <div
             id='griddy-nav-menu'
             className={`navbar-menu${menuShown ? ' is-active' : ''}`}>
-            {/* Navbar menu end */}
-            <div className='navbar-end'>
-              {categories && <Category type={type} categories={categories} />}
-            </div>
+            {/* Navbar menu start or/and end */}
+            {children}
           </div>
         </div>
       </nav>

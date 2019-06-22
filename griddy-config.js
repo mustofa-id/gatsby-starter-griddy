@@ -52,7 +52,7 @@ exports.siteMetadata = {
   title: `Griddy`,
   description: `Gallery & Portfolio of artist`,
   author: `@mustofaa_id`,
-  primaryColor: `#363636`,
+  primaryColor: `#ffffff`,
   menuItemsStart,
   menuItemsEnd,
   socialLink

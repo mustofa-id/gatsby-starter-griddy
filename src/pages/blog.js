@@ -58,7 +58,9 @@ const BlogItem = ({ node }) => {
   const { title, date, category, timeToRead, cover } = frontmatter
   return (
     <Link to={fields.slug}>
-      <div className='box is-paddingless has-rounded-corner has-bg-shadow'>
+      <div
+        className='box is-paddingless has-rounded-corner has-bg-shadow'
+        style={{ marginBottom: '1rem' }}>
         <Img
           style={{ borderRadius: '10px 10px 0 0' }}
           fluid={cover.childImageSharp.fluid}

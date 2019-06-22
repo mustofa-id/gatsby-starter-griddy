@@ -3,9 +3,11 @@ import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import profilpic from '../assets/images/profile.jpg'
 import SEO from '../components/seo'
+import IconButton from '../components/widget/icon-button'
+import { isExternalLink } from '../shared/util'
 
 const IndexPage = ({ data }) => {
-  const { title, description, nav } = data.site.siteMetadata
+  const { title, description, nav, social } = data.site.siteMetadata
   return (
     <>
       {/* Add seo props as you wish */}
@@ -53,12 +55,6 @@ const IndexPage = ({ data }) => {
                         to={item.href}>
                         {item.name}
                       </Link>
-                      // <IconButton
-                      //   key={`${index}--${item.name}`}
-                      //   to={item.href}
-                      //   text={item.name}
-                      //   icon={item.icon}
-                      // />
                     ))}
                   </div>
                   <div className='content has-content-padding'
@@ -83,6 +79,18 @@ const IndexPage = ({ data }) => {
                       as opposed to using 'Content here, content here', making it look like readable English.
                     </p>
                     {/* put the social media icon here */}
+                    <div className='buttons is-centered'>
+                      {social.map((item, index) => (
+                        <IconButton
+                          key={`${index}--${item.name}`}
+                          to={item.href}
+                          icon={item.icon}
+                          external={isExternalLink(item.href)}
+                          iconSize='24'
+                          buttonClass='is-white is-large has-text-grey'
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -108,6 +116,11 @@ export const query = graphql`
         title
         description
         nav: menuItemsStart {
+          name
+          href
+          icon
+        }
+        social: socialLink {
           name
           href
           icon

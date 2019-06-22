@@ -29,11 +29,31 @@ const menuItemsEnd = [
   }
 ]
 
+const socialLink = [
+  {
+    name: 'Facebook',
+    href: 'https://link.mustofa.id/fb',
+    icon: 'facebook'
+  },
+  {
+    name: 'Instagram',
+    href: 'https://link.mustofa.id/fb',
+    icon: 'instagram'
+  },
+  {
+    name: 'Twitter',
+    href: 'https://link.mustofa.id/fb',
+    icon: 'twitter'
+  }
+  // Add social link here as much as you want
+]
+
 exports.siteMetadata = {
   title: `Griddy`,
   description: `Gallery & Portfolio of artist`,
   author: `@mustofaa_id`,
   primaryColor: `#363636`,
   menuItemsStart,
-  menuItemsEnd
+  menuItemsEnd,
+  socialLink
 }

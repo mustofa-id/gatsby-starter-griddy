@@ -197,3 +197,16 @@ article, aside, figure, footer, header, hgroup, section {
   left: 0.5em;
   margin-right: -50%;
 }
+
+.is-masonry {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -1rem;
+  width: auto;
+}
+
+.is-masonry-column {
+  padding-left: 1rem;
+  background-clip: padding-box;
+}

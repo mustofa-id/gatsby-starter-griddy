@@ -7,8 +7,16 @@ import SEO from '../components/seo'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 import Category from '../components/widget/category'
+import Masonry from '../components/widget/masonry'
 
 const title = 'Blog'
+// Screen width break point for masonry
+const masonryBreakpoint = {
+  default: 4,
+  1000: 3,
+  850: 2,
+  500: 1
+}
 
 const Blog = ({ data, location }) => {
   let { edges } = data.blog
@@ -31,11 +39,11 @@ const Blog = ({ data, location }) => {
         <article className='hero is-fullheight is-light'>
           <div className='hero-body'>
             <div className='container has-text-centered'>
-              <div className='columns is-centered is-multiline'>
+              <Masonry breakpoint={masonryBreakpoint}>
                 {edges.map(e => (
                   <BlogItem key={e.node.id} node={e.node} />
                 ))}
-              </div>
+              </Masonry>
             </div>
           </div>
         </article>
@@ -49,7 +57,7 @@ const BlogItem = ({ node }) => {
   const { fields, excerpt, frontmatter } = node
   const { title, date, category, timeToRead, cover } = frontmatter
   return (
-    <Link className='column is-one-third is-flex' to={fields.slug}>
+    <Link to={fields.slug}>
       <div className='box is-paddingless has-rounded-corner has-bg-shadow'>
         <Img
           style={{ borderRadius: '10px 10px 0 0' }}

@@ -7,8 +7,15 @@ import Navbar from '../components/navbar'
 import SEO from '../components/seo'
 import { edgesToCategories } from '../shared/util'
 import Category from '../components/widget/category'
+import Masonry from '../components/widget/masonry'
 
 const title = 'Gallery'
+// Screen width break point for masonry
+const masonryBreakpoint = {
+  default: 3,
+  850: 2,
+  500: 1
+}
 
 const Gallery = ({ data, location }) => {
   let { edges } = data.gallery
@@ -31,12 +38,11 @@ const Gallery = ({ data, location }) => {
         <article className='hero is-fullheight is-light'>
           <div className='hero-body'>
             <div className='container has-text-centered'>
-              <div className='columns is-centered is-multiline'>
-                {/* take a look at this: https://www.npmjs.com/package/react-masonry-css */}
+              <Masonry breakpoint={masonryBreakpoint}>
                 {edges.map(e => (
                   <GalleryItem key={e.node.id} node={e.node} />
                 ))}
-              </div>
+              </Masonry>
             </div>
           </div>
         </article>
@@ -53,8 +59,8 @@ const GalleryItem = ({ node }) => {
   console.log(excerpt, title, date, category, timeToRead) // TODO: Delete this line if variables used
 
   return (
-    <Link className='column is-one-third' to={fields.slug}>
-      <div className='box is-paddingless'>
+    <Link to={fields.slug}>
+      <div className='box is-paddingless' style={{ marginBottom: '1rem' }}>
         <Img
           style={{ borderRadius: '6px 6px 6px 6px' }}
           fluid={cover.childImageSharp.fluid}

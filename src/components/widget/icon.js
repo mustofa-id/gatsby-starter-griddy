@@ -1,5 +1,5 @@
 import React from 'react'
-import feather from 'feather-icons/dist/feather-sprite.svg'
+import feather from '../../assets/icons/feather.svg'
 
 const Icon = ({ name, size, width, height, color, style }) => (
   <svg style={style}

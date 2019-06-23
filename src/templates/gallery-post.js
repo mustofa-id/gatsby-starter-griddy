@@ -14,10 +14,9 @@ const GalleryPost = ({ data, location }) => {
   const { excerpt, frontmatter, html, timeToRead } = data.gallery
   const { title, date, tags, category, cover } = frontmatter
   const { fluid } = cover.childImageSharp
-  const ogImage = `${location.origin}${fluid.src}`
   const keywords = ['mustofa.id', 'gallery', ...tags]
 
-  const seoProps = { title, description: excerpt, keywords, image: ogImage }
+  const seoProps = { title, description: excerpt, keywords, image: fluid.src }
 
   return (
     <>

@@ -21,17 +21,18 @@ const BottomSheet = ({ pageContext, title }) => {
 
   return (
     <div className='level is-mobile'>
-      <div className='level-item'>
+      <div className='level-item'
+        style={{ flexGrow: '0' }}>
         <IconButton
-          buttonClass={`is-light is-rounded${previous ? '' : ' is-static'}`}
-          to={previous ? previous.fields.slug : null}
-          text='Prev'
+          buttonClass={`is-light${next ? '' : ' is-static'}`}
+          to={next ? next.fields.slug : null}
+          text='Next'
           icon='skip-back'
         />
       </div>
       <div className='level-item'>
         <IconButton
-          buttonClass={`is-light is-rounded${
+          buttonClass={`is-light${
             state.loved
               ? ' has-text-link is-static'
               : state.loading
@@ -43,12 +44,13 @@ const BottomSheet = ({ pageContext, title }) => {
           onClick={handleReaction}
         />
       </div>
-      <div className='level-item'>
+      <div className='level-item is-justify'
+        style={{ flexGrow: '0' }}>
         <IconButton
-          buttonClass={`is-light is-rounded${next ? '' : ' is-static'}`}
-          to={next ? next.fields.slug : null}
+          buttonClass={`is-light${previous ? '' : ' is-static'}`}
+          to={previous ? previous.fields.slug : null}
           rightIcon
-          text='Next'
+          text='Prev'
           icon='skip-forward'
         />
       </div>

@@ -80,7 +80,9 @@ const BlogPost = ({ data, pageContext }) => {
                     style={{ marginBottom: '1rem' }}
                   />
                   {/* hastag */}
-                  <Hashtag type={paramType} tags={tags} />
+                  <div className='hastag'>
+                    <Hashtag type={paramType} tags={tags} />
+                  </div>
                   {/* next-love-prev */}
                   <LoveContext.Provider value={{ state, dispatch }}>
                     <BottomSheet pageContext={pageContext} title={title} />

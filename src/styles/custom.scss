@@ -279,3 +279,18 @@ opacity: 1
   left: 0.5em;
   margin-right: -50%;
 }
+
+// hastag
+.hastag {
+  margin-bottom: 1.5rem;
+}
+
+// for navigation button
+.is-justify {
+  flex-grow: 0;
+}
+
+// is-static button
+.is-static {
+  border: unset;
+}

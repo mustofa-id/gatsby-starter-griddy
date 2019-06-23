@@ -57,7 +57,7 @@ exports.siteMetadata = {
   title: `Griddy`,
   description: `Gallery & Portfolio of artist`,
   author: `@mustofaa_id`,
-  url: `https://mustofa.id`, // For SEO
+  url: `https://griddy.netlify.com/`, // For SEO
   primaryColor: `#ffffff`,
   menuItemsStart,
   menuItemsEnd,

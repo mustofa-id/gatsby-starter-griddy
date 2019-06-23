@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer, useEffect } from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import Hashtag from '../components/widget/hashtag'
@@ -6,17 +6,33 @@ import { queryType } from '../shared/post-filter'
 import Footer from '../components/footer'
 import Navbar from '../components/navbar'
 import SEO from '../components/seo'
+import {
+  loveReducer,
+  initialState,
+  fetchLoves,
+  LoveContext
+} from '../store/love-reducer'
+import { hashCode } from '../shared/util'
+import BottomSheet from '../components/widget/bottom-sheet'
+import Toast from '../components/widget/toast'
 
 const paramType = 'blog'
 
-const BlogPost = ({ data, location }) => {
+const BlogPost = ({ data, pageContext }) => {
   // All fileds post
-  const { excerpt, frontmatter, html, timeToRead } = data.blog
+  const { excerpt, frontmatter, html, timeToRead, fields } = data.blog
   const { title, date, tags, category, cover } = frontmatter
   const { fluid } = cover.childImageSharp
   const keywords = ['mustofa.id', 'blog', ...tags]
-
   const seoProps = { title, description: excerpt, keywords, image: fluid.src }
+
+  // Reducer
+  const [state, dispatch] = useReducer(loveReducer, initialState)
+  const postId = hashCode(fields.slug).toString()
+
+  useEffect(() => {
+    fetchLoves(dispatch, postId)
+  }, [])
 
   return (
     <>
@@ -33,8 +49,7 @@ const BlogPost = ({ data, location }) => {
           <div className='hero-body' style={{ paddingBottom: '0' }}>
             <div className='container'>
               {/* box for the post */}
-              <div
-                className='box has-bg-shadow has-rounded-corner is-paddingless'>
+              <div className='box has-bg-shadow has-rounded-corner is-paddingless'>
                 <figure className='image'>
                   {/* cover image */}
                   <Img fluid={fluid} className='coverpic' alt='cover post' />
@@ -60,11 +75,16 @@ const BlogPost = ({ data, location }) => {
                     </Link>
                   </p>
                   {/* content of the post */}
-                  <article dangerouslySetInnerHTML={{ __html: html }}
-                    style={{ marginBottom: '1rem' }} />
+                  <article
+                    dangerouslySetInnerHTML={{ __html: html }}
+                    style={{ marginBottom: '1rem' }}
+                  />
                   {/* hastag */}
                   <Hashtag type={paramType} tags={tags} />
-                  {/* we need tu put the next-love-prev button like https://mustofa.id/blog/ here */}
+                  {/* next-love-prev */}
+                  <LoveContext.Provider value={{ state, dispatch }}>
+                    <BottomSheet pageContext={pageContext} title={title} />
+                  </LoveContext.Provider>
                 </div>
               </div>
             </div>
@@ -72,6 +92,7 @@ const BlogPost = ({ data, location }) => {
         </div>
       </main>
       <Footer />
+      <Toast shown={state.message} message={state.message} type='dark' />
     </>
   )
 }

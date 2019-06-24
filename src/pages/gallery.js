@@ -37,7 +37,8 @@ const Gallery = ({ data, location }) => {
       </header>
       <main className='fade-in'>
         <article className='hero is-light'>
-          <div className='hero-body'>
+          <div className='hero-body'
+            style={{ paddingBottom: '0' }}>
             <div className='container has-text-centered'>
               <Masonry breakpoint={masonryBreakpoint}>
                 {edges.map(e => (

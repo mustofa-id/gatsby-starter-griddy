@@ -2,12 +2,19 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Icon from './icon'
 
-const DynamicLink = ({ onClick, className, to, external, children }) => {
+const DynamicLink = ({
+  onClick,
+  className,
+  to,
+  external,
+  children,
+  ...wrapperProps
+}) => {
   const classStyle = `button${className ? ' ' + className : ''}`
   return (
     <>
       {!to ? (
-        <div className={classStyle} onClick={onClick}>
+        <div className={classStyle} onClick={onClick} {...wrapperProps}>
           {children}
         </div>
       ) : external ? (
@@ -15,7 +22,8 @@ const DynamicLink = ({ onClick, className, to, external, children }) => {
           className={classStyle}
           href={to}
           target='_blank'
-          rel='noopener noreferrer'>
+          rel='noopener noreferrer'
+          {...wrapperProps}>
           {children}
         </a>
       ) : (
@@ -32,12 +40,15 @@ const IconButton = ({
   text,
   to, // target url
   rightIcon, // if true or defined icon will on right next of text
-  external, // if true or defined url will open as external link
   buttonClass,
   iconClass,
   iconSize = '16', // size of icon, default is 16
-  onClick
+  onClick,
+  ...wrapperProps
 }) => {
+  const external =
+    (to && (to.includes('http') || to.includes('mailto'))) ||
+    wrapperProps.download
   const txt = text && <span>{text}</span>
   const icn = (
     <span className={`icon${iconClass ? ' ' + iconClass : ''}`}>
@@ -49,7 +60,8 @@ const IconButton = ({
       onClick={onClick}
       to={to}
       className={buttonClass}
-      external={external}>
+      external={external}
+      {...wrapperProps}>
       {rightIcon ? (
         <>
           {txt}

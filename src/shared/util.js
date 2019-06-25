@@ -10,10 +10,6 @@ export function edgesToTags (edges) {
     .filter((v, i, e) => e.indexOf(v) === i)
 }
 
-export function isExternalLink (url) {
-  return url.includes('http') || url.includes('mailto')
-}
-
 export function updatedObj (old, upd) {
   return { ...old, ...upd }
 }

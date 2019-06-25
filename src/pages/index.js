@@ -4,7 +4,6 @@ import Img from 'gatsby-image'
 import profilpic from '../assets/images/profile.jpg'
 import SEO from '../components/seo'
 import IconButton from '../components/widget/icon-button'
-import { isExternalLink } from '../shared/util'
 
 const IndexPage = ({ data }) => {
   const { title, description, nav, social } = data.site.siteMetadata
@@ -83,7 +82,6 @@ const IndexPage = ({ data }) => {
                           key={`${index}--${item.name}`}
                           to={item.href}
                           icon={item.icon}
-                          external={isExternalLink(item.href)}
                           iconSize='24'
                           buttonClass='is-white is-large has-text-grey'
                         />

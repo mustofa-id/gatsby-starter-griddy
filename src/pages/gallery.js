@@ -54,10 +54,8 @@ const Gallery = ({ data, location }) => {
 }
 
 const GalleryItem = ({ node }) => {
-  const { fields, excerpt, frontmatter } = node
-  const { title, date, category, timeToRead, cover } = frontmatter
-
-  console.log(excerpt, title, date, category, timeToRead) // TODO: Delete this line if variables used
+  const { fields, frontmatter } = node
+  const { title, cover } = frontmatter
 
   return (
     <Link to={fields.slug}>
@@ -88,15 +86,11 @@ export const query = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 60)
           fields {
             slug
           }
           frontmatter {
             title
-            date(formatString: "YYYY-MM-DD")
-            tags
-            category
             cover {
               childImageSharp {
                 fluid(maxHeight: 500, quality: 90) {

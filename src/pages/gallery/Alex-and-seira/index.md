@@ -8,6 +8,8 @@ tags:
   - originalcharacter
 category: Fanart
 cover: alex-seira.jpg
+attachments:
+  - alex-seira.jpg
 ---
 
 Here is [Alex](https://www.artstation.com/artwork/oOBlXk) with my OC who called Seira.

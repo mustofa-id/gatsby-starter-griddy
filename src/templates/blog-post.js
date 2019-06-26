@@ -83,8 +83,9 @@ const BlogPost = ({ data, pageContext }) => {
                   {/* Files downloadable attachments */}
                   {attachments && (
                     <div>
-                      <div>Attachments:</div>
-                      <div className='buttons'>
+                      <div style={{ marginBottom: '1rem' }}>Attachments:</div>
+                      <div className='buttons'
+                        style={{ marginBottom: '1rem' }}>
                         {attachments.map((f, i) => (
                           <IconButton
                             key={`pub-url--${i}`}
@@ -92,7 +93,7 @@ const BlogPost = ({ data, pageContext }) => {
                             icon='paperclip'
                             text={`${f.name}.${f.extension}`}
                             download
-                            buttonClass='is-small'
+                            buttonClass='is-light is-small'
                             iconSize='12'
                           />
                         ))}

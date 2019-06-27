@@ -13,7 +13,7 @@ const title = 'Blog'
 // Screen width break point for masonry
 const masonryBreakpoint = {
   default: 4,
-  1300: 3,
+  1279: 3,
   850: 2,
   500: 1
 }

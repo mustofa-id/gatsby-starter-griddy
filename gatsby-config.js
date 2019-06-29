@@ -50,7 +50,13 @@ module.exports = {
               maxWidth: 720
             }
           },
-          `gatsby-remark-copy-linked-files`
+          {
+            // https://www.gatsbyjs.org/packages/gatsby-remark-copy-linked-files/
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'file' // example generated download link: https://myweb.com/ file /blabla.zip
+            }
+          }
         ]
       }
     },

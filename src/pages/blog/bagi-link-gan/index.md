@@ -6,9 +6,6 @@ tags:
   - fun
 category: Download
 cover: hot.jpg
-attachments:
-  - hot.jpg
-  - xxx.zip
 ---
 
-Download file di attachments gan
+Download file di attachments gan, eh ga, di [sini](xxx.zip) aja gan.

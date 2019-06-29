@@ -49,7 +49,8 @@ module.exports = {
             options: {
               maxWidth: 720
             }
-          }
+          },
+          `gatsby-remark-copy-linked-files`
         ]
       }
     },

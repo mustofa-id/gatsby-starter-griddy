@@ -15,14 +15,13 @@ import {
 import { hashCode } from '../shared/util'
 import BottomSheet from '../components/widget/bottom-sheet'
 import Toast from '../components/widget/toast'
-import IconButton from '../components/widget/icon-button'
 
 const paramType = 'blog'
 
 const BlogPost = ({ data, pageContext }) => {
   // All fileds post
   const { excerpt, frontmatter, html, timeToRead, fields } = data.blog
-  const { title, date, tags, category, cover, attachments } = frontmatter
+  const { title, date, tags, category, cover } = frontmatter
   const { fluid } = cover.childImageSharp
   const keywords = ['mustofa.id', 'blog', ...tags]
   const seoProps = { title, description: excerpt, keywords, image: fluid.src }
@@ -80,26 +79,6 @@ const BlogPost = ({ data, pageContext }) => {
                     dangerouslySetInnerHTML={{ __html: html }}
                     style={{ marginBottom: '1rem' }}
                   />
-                  {/* Files downloadable attachments */}
-                  {attachments && (
-                    <div>
-                      <div style={{ marginBottom: '1rem' }}>Attachments:</div>
-                      <div className='buttons'
-                        style={{ marginBottom: '1rem' }}>
-                        {attachments.map((f, i) => (
-                          <IconButton
-                            key={`pub-url--${i}`}
-                            to={f.publicURL}
-                            icon='paperclip'
-                            text={`${f.name}.${f.extension}`}
-                            download
-                            buttonClass='is-light is-small'
-                            iconSize='12'
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  )}
                   {/* hastag */}
                   {tags && (
                     <div className='hastag'>
@@ -139,11 +118,6 @@ export const query = graphql`
               ...GatsbyImageSharpFluid
             }
           }
-        }
-        attachments {
-          publicURL
-          name
-          extension
         }
       }
       fields {

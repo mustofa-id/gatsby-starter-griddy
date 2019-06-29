@@ -71,9 +71,9 @@ cat > $TARGET/index.md <<- EOM
 title: $TITLE
 date: $DATE
 tags:
-category:
-cover:
-attachments:
+	- example
+category: example
+cover: example.jpg
 ---
 
 EOM

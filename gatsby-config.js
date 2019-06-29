@@ -58,8 +58,8 @@ module.exports = {
       // https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt/
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: siteMetadata.url,
-        sitemap: `${siteMetadata.url}sitemap.xml`,
+        host: siteMetadata.siteUrl,
+        sitemap: `${siteMetadata.siteUrl}sitemap.xml`,
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
@@ -69,6 +69,37 @@ module.exports = {
       options: {
         // replace "UA-XXXXXXXXX-X" with your own Tracking ID
         trackingId: `UA-XXXXXXXXX-X`
+      }
+    },
+    {
+      // https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        // exclude: [`/category/*`, `/path/to/page`]
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+  
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+        }`,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.edges.map(edge => {
+            return {
+              url: site.siteMetadata.siteUrl + edge.node.path,
+              changefreq: `daily`,
+              priority: 0.7
+            }
+          })
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -18,7 +18,7 @@ function SEO ({
             title
             description
             author
-            url
+            siteUrl
           }
         }
       }
@@ -53,7 +53,7 @@ function SEO ({
         },
         {
           property: `og:image`,
-          content: `${site.siteMetadata.url}${image}`
+          content: `${site.siteMetadata.siteUrl}${image}`
         },
         {
           name: `twitter:card`,

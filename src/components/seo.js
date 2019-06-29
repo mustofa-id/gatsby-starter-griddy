@@ -26,6 +26,7 @@ function SEO ({
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const metaTitle = title || site.siteMetadata.title
 
   const allMeta = [
     {
@@ -34,7 +35,7 @@ function SEO ({
     },
     {
       property: `og:title`,
-      content: title
+      content: metaTitle
     },
     {
       property: `og:description`,
@@ -54,7 +55,7 @@ function SEO ({
     },
     {
       name: `twitter:title`,
-      content: title
+      content: metaTitle
     },
     {
       name: `twitter:description`,

@@ -36,7 +36,7 @@ module.exports = {
         background_color: siteMetadata.primaryColor,
         theme_color: siteMetadata.primaryColor,
         display: `minimal-ui`,
-        icon: `src/assets/images/gatsby-icon.png` // This path is relative to the root of the site.
+        icon: siteMetadata.icon
       }
     },
     `gatsby-plugin-sass`,
@@ -59,7 +59,7 @@ module.exports = {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: siteMetadata.siteUrl,
-        sitemap: `${siteMetadata.siteUrl}sitemap.xml`,
+        sitemap: siteMetadata.siteUrl + siteMetadata.sitemap,
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
@@ -67,8 +67,7 @@ module.exports = {
       // https://www.gatsbyjs.org/docs/adding-analytics/
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
-        trackingId: `UA-XXXXXXXXX-X`
+        trackingId: siteMetadata.trackingId
       }
     },
     {
@@ -76,6 +75,7 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         // exclude: [`/category/*`, `/path/to/page`]
+        output: `/${siteMetadata.sitemap}`,
         query: `
           {
             site {
@@ -83,7 +83,6 @@ module.exports = {
                 siteUrl
               }
             }
-  
             allSitePage {
               edges {
                 node {

@@ -27,6 +27,50 @@ function SEO ({
 
   const metaDescription = description || site.siteMetadata.description
 
+  const allMeta = [
+    {
+      name: `description`,
+      content: metaDescription
+    },
+    {
+      property: `og:title`,
+      content: title
+    },
+    {
+      property: `og:description`,
+      content: metaDescription
+    },
+    {
+      property: `og:type`,
+      content: `website`
+    },
+    {
+      name: `twitter:card`,
+      content: `summary`
+    },
+    {
+      name: `twitter:creator`,
+      content: site.siteMetadata.author
+    },
+    {
+      name: `twitter:title`,
+      content: title
+    },
+    {
+      name: `twitter:description`,
+      content: metaDescription
+    }
+  ]
+
+  if (image) {
+    const imgSrc =
+      image.charAt(0) === '/' ? image.substring(1, image.length) : image
+    allMeta.push({
+      property: `og:image`,
+      content: `${site.siteMetadata.siteUrl}${imgSrc}`
+    })
+  }
+
   return (
     <Helmet
       htmlAttributes={{
@@ -34,44 +78,7 @@ function SEO ({
       }}
       title={title || site.siteMetadata.title}
       titleTemplate={title ? `%s - ${site.siteMetadata.title}` : `%s`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription
-        },
-        {
-          property: `og:title`,
-          content: title
-        },
-        {
-          property: `og:description`,
-          content: metaDescription
-        },
-        {
-          property: `og:type`,
-          content: `website`
-        },
-        {
-          property: `og:image`,
-          content: `${site.siteMetadata.siteUrl}${image}`
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author
-        },
-        {
-          name: `twitter:title`,
-          content: title
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription
-        }
-      ]
+      meta={allMeta
         .concat(
           keywords.length > 0
             ? {

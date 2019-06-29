@@ -93,6 +93,7 @@ export const query = graphql`
           frontmatter {
             title
             category
+            tags
             cover {
               childImageSharp {
                 fluid(maxHeight: 500, quality: 90) {

@@ -100,7 +100,8 @@ module.exports = {
             }
           })
       }
-    }
+    },
+    `gatsby-plugin-feed` // https://www.gatsbyjs.org/docs/adding-an-rss-feed/
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

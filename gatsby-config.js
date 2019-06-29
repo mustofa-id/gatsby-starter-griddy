@@ -52,6 +52,23 @@ module.exports = {
           }
         ]
       }
+    },
+    {
+      // https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt/
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: siteMetadata.url,
+        sitemap: `${siteMetadata.url}sitemap.xml`,
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
+    {
+      // https://www.gatsbyjs.org/docs/adding-analytics/
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: `UA-XXXXXXXXX-X`
+      }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

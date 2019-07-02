@@ -3,38 +3,35 @@ import React, { useState, useEffect } from 'react'
 const Masonry = ({ column, children, breakpoint }) => {
   if (!children) return null
 
-  const [columnCount, setColumnCount] = useState(breakpoint.default)
+  const [columnCount, setColumnCount] = useState(getColumnCount())
 
   useEffect(() => {
-    calculateColumnCount()
-    if (window) window.addEventListener('resize', calculateColumnCount)
-    return () => {
-      if (window) {
-        window.removeEventListener('resize', calculateColumnCount)
-      }
+    if (window) {
+      updateColumn()
+      window.addEventListener('resize', updateColumn)
+      return () => window.removeEventListener('resize', updateColumn)
     }
   })
 
-  function calculateColumnCount () {
+  function getColumnCount () {
     const width = (window && window.innerWidth) || Infinity
-
     let matchedBreakpoint = Infinity
     let columns = breakpoint.default
-
     for (let bp in breakpoint) {
       const optBreakpoint = parseInt(bp)
       const isCurrentBreakpoint = optBreakpoint > 0 && width <= optBreakpoint
-
       if (isCurrentBreakpoint && optBreakpoint < matchedBreakpoint) {
         matchedBreakpoint = optBreakpoint
         columns = breakpoint[bp]
       }
     }
+    return Math.max(1, parseInt(columns) || 1)
+  }
 
-    columns = Math.max(1, parseInt(columns) || 1)
-
-    if (columnCount !== columns) {
-      setColumnCount(columns)
+  function updateColumn () {
+    const mColumnCount = getColumnCount()
+    if (columnCount !== mColumnCount) {
+      setColumnCount(mColumnCount)
     }
   }
 

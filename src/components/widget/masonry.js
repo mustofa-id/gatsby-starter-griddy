@@ -6,7 +6,7 @@ const Masonry = ({ column, children, breakpoint }) => {
   const [columnCount, setColumnCount] = useState(getColumnCount())
 
   useEffect(() => {
-    if (window) {
+    if (typeof window !== 'undefined') {
       updateColumn()
       window.addEventListener('resize', updateColumn)
       return () => window.removeEventListener('resize', updateColumn)
@@ -14,18 +14,21 @@ const Masonry = ({ column, children, breakpoint }) => {
   })
 
   function getColumnCount () {
-    const width = (window && window.innerWidth) || Infinity
-    let matchedBreakpoint = Infinity
-    let columns = breakpoint.default
-    for (let bp in breakpoint) {
-      const optBreakpoint = parseInt(bp)
-      const isCurrentBreakpoint = optBreakpoint > 0 && width <= optBreakpoint
-      if (isCurrentBreakpoint && optBreakpoint < matchedBreakpoint) {
-        matchedBreakpoint = optBreakpoint
-        columns = breakpoint[bp]
+    if (typeof window !== 'undefined') {
+      const width = (window.innerWidth) || Infinity
+      let matchedBreakpoint = Infinity
+      let columns = breakpoint.default
+      for (let bp in breakpoint) {
+        const optBreakpoint = parseInt(bp)
+        const isCurrentBreakpoint = optBreakpoint > 0 && width <= optBreakpoint
+        if (isCurrentBreakpoint && optBreakpoint < matchedBreakpoint) {
+          matchedBreakpoint = optBreakpoint
+          columns = breakpoint[bp]
+        }
       }
+      return Math.max(1, parseInt(columns) || 1)
     }
-    return Math.max(1, parseInt(columns) || 1)
+    return 0
   }
 
   function updateColumn () {

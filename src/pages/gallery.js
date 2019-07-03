@@ -35,7 +35,6 @@ const Gallery = ({ data, location }) => {
   useEffect(() => setEnd(!(limit < posts.length)), [isLoading, isEnd])
 
   function loadMore () {
-    console.log('Load more...')
     if (limit >= posts.length) {
       setEnd(true)
       return
@@ -43,14 +42,17 @@ const Gallery = ({ data, location }) => {
     setTimeout(() => {
       setLimit(prev => prev + postLimit)
       setLoading(false)
-    }, 500) // Delay stop loading in 0.5 second
+    }, 300) // Delay stop loading in 0.5 second
   }
+
+  const postCount = ` (${posts.length})`
+  const subtitle = queryWithType ? queryWithType + postCount : postCount
 
   return (
     <>
       <SEO title={title} />
       <header>
-        <Navbar title={title} subtitle={queryWithType}>
+        <Navbar title={title} subtitle={subtitle}>
           <Category categories={categories} type='gallery' />
         </Navbar>
       </header>

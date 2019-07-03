@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Img from 'gatsby-image'
 import { graphql, Link } from 'gatsby'
 import { filter, queryWithType } from '../shared/post-filter'
@@ -8,6 +8,7 @@ import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 import Category from '../components/widget/category'
 import Masonry from '../components/widget/masonry'
+import infiniteScroll from '../shared/infinite-scroll'
 
 const title = 'Blog'
 // Screen width break point for masonry
@@ -17,15 +18,33 @@ const masonryBreakpoint = {
   850: 2,
   500: 1
 }
+const postLimit = 2 // limit post each page scroll
 
 const Blog = ({ data, location }) => {
-  let { edges } = data.blog
+  const { edges } = data.blog
 
   // Get all categiries from edges
   const categories = edgesToCategories(edges)
 
+  const [limit, setLimit] = useState(postLimit)
+  const [isLoading, setLoading, isEnd, setEnd] = infiniteScroll(loadMore)
+
   // Filter post items by url query
-  edges = filter(edges, location)
+  const posts = filter(edges, location)
+
+  useEffect(() => setEnd(!(limit < posts.length)), [isLoading, isEnd])
+
+  function loadMore () {
+    console.log('Load more...')
+    if (limit >= posts.length) {
+      setEnd(true)
+      return
+    }
+    setTimeout(() => {
+      setLimit(prev => prev + postLimit)
+      setLoading(false)
+    }, 500) // Delay stop loading in 0.5 second
+  }
 
   return (
     <>
@@ -37,14 +56,16 @@ const Blog = ({ data, location }) => {
       </header>
       <main className='fade-in'>
         <article className='hero is-light'>
-          <div className='hero-body'
-            style={{ paddingBottom: '0' }}>
+          <div className='hero-body' style={{ paddingBottom: '0' }}>
             <div className='container has-text-centered'>
               <Masonry breakpoint={masonryBreakpoint}>
-                {edges.map(e => (
+                {posts.slice(0, limit).map(e => (
                   <BlogItem key={e.node.id} node={e.node} />
                 ))}
               </Masonry>
+              {isLoading && !isEnd && (
+                <div className='button is-light is-loading'>Loading...</div>
+              )}
             </div>
           </div>
         </article>

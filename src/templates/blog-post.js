@@ -95,6 +95,8 @@ const BlogPost = ({ data, pageContext, location }) => {
                   </LoveContext.Provider>
                   {/* Valine comment system */}
                   <ValineComment location={location} postId={postId} />
+                  {/* Valine comment system */}
+                  <ValineComment />
                 </div>
               </div>
             </div>

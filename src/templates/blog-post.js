@@ -15,6 +15,7 @@ import { hashCode, queryType } from '../shared/util'
 import BottomSheet from '../components/widget/bottom-sheet'
 import Toast from '../components/widget/toast'
 import { ShareButtons } from '../components/widget/share-button'
+import ValineComment from '../components/valine-comment'
 
 const paramType = 'blog'
 
@@ -97,6 +98,8 @@ const BlogPost = ({ data, pageContext, location }) => {
                       buttonClass='is-white has-text-grey'
                     />
                   </p>
+                  {/* Valine comment system */}
+                  <ValineComment />
                 </div>
               </div>
             </div>

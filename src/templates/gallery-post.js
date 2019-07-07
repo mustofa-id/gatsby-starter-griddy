@@ -15,6 +15,7 @@ import {
 } from '../store/love-reducer'
 import { hashCode } from '../shared/util'
 import Toast from '../components/widget/toast'
+import ValineComment from '../components/valine-comment'
 
 const paramType = 'gallery'
 
@@ -85,6 +86,8 @@ const GalleryPost = ({ data, pageContext }) => {
                   <LoveContext.Provider value={{ state, dispatch }}>
                     <BottomSheet pageContext={pageContext} title={title} />
                   </LoveContext.Provider>
+                  {/* Valine comment system */}
+                  <ValineComment />
                 </div>
               </div>
             </div>

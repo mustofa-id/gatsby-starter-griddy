@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import Valine from 'valine'
 
 const config = {
   el: '#vcomment',
@@ -19,9 +18,14 @@ const ValineComment = props => {
     if (typeof window !== 'undefined') {
       // Setup leancloud
       window.AV = require('leancloud-storage')
-      // Setup valine
-      const valine = Valine()
-      valine.init(config)
+
+      // Setup valine lazily because problem with window object
+      // PS: Dinamyc import not allowed by standard js so we ignore this js file to be formated
+      import('valine')
+        .then(valine => {
+          valine.default(config)
+        })
+        .catch(error => console.error(error))
     }
   }, [])
 

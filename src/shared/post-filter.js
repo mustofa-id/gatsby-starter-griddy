@@ -24,6 +24,13 @@ export function filter (items, location) {
   // Get first key in search params. eg from sample above `tag`
   const type = params.keys().next().value
 
+  // Only allow query from queryType
+  for (let key in queryType) {
+    if (type !== queryType[key]) {
+      return items
+    }
+  }
+
   // Get value of search params given type. eg from sample above `palette`
   const query = params.get(type)
 

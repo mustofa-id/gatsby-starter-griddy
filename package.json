@@ -55,5 +55,10 @@
   },
   "bugs": {
     "url": "https://github.com/mustofa-id/gatsby-starter-griddy/issues"
+  },
+  "standard": {
+    "ignore": [
+      "src/**/valine-comment.*"
+    ]
   }
 }

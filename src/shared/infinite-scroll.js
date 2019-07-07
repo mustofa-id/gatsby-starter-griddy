@@ -5,15 +5,28 @@ export default function infiniteScroll (callback) {
   const [isEnd, setEnd] = useState(false)
 
   useEffect(() => {
-    const delay = 250
-    window.addEventListener('scroll', throttle(handleScroll, delay))
-    return () => window.removeEventListener('scroll', throttle(handleScroll, delay))
+    let ticking = false
+    function scroll () {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll()
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', scroll)
+    return () => window.removeEventListener('scroll', scroll)
   }, [])
 
-  useEffect(() => {
-    if (!isLoading || isEnd) return
-    callback()
-  }, [isLoading, isEnd])
+  useEffect(
+    () => {
+      if (!isLoading || isEnd) return
+      callback()
+    },
+    [isLoading, isEnd]
+  )
 
   function handleScroll () {
     const threshold = window.innerHeight / 2
@@ -24,14 +37,4 @@ export default function infiniteScroll (callback) {
     setLoading(true)
   }
   return [isLoading, setLoading, isEnd, setEnd]
-}
-
-function throttle (func, wait) {
-  let time = Date.now()
-  return function () {
-    if ((time + wait - Date.now()) < 0) {
-      func()
-      time = Date.now()
-    }
-  }
 }

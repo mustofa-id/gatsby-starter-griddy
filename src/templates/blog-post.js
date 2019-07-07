@@ -15,6 +15,7 @@ import {
 import { hashCode } from '../shared/util'
 import BottomSheet from '../components/widget/bottom-sheet'
 import Toast from '../components/widget/toast'
+import ValineComment from '../components/valine-comment'
 
 const paramType = 'blog'
 
@@ -89,6 +90,8 @@ const BlogPost = ({ data, pageContext }) => {
                   <LoveContext.Provider value={{ state, dispatch }}>
                     <BottomSheet pageContext={pageContext} title={title} />
                   </LoveContext.Provider>
+                  {/* Valine comment system */}
+                  <ValineComment />
                 </div>
               </div>
             </div>

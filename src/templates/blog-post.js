@@ -19,7 +19,7 @@ import ValineComment from '../components/valine-comment'
 
 const paramType = 'blog'
 
-const BlogPost = ({ data, pageContext }) => {
+const BlogPost = ({ data, pageContext, location }) => {
   // All fileds post
   const { excerpt, frontmatter, html, timeToRead, fields } = data.blog
   const { title, date, tags, category, cover } = frontmatter
@@ -91,7 +91,7 @@ const BlogPost = ({ data, pageContext }) => {
                     <BottomSheet pageContext={pageContext} title={title} />
                   </LoveContext.Provider>
                   {/* Valine comment system */}
-                  <ValineComment />
+                  <ValineComment location={location} postId={postId} />
                 </div>
               </div>
             </div>

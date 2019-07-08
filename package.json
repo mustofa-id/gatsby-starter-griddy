@@ -38,7 +38,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby clean && gatsby build",
     "dev": "gatsby develop",
     "format": "standard --fix src/**/*.{js,jsx}",
     "start": "npm run develop",

@@ -72,3 +72,16 @@ const createPostPage = (actions, posts, component) => {
     })
   })
 }
+
+// Disable generate source maps in production
+// You must use `npm run build` as build command at your server/hosting
+// Eg. in Netlify go to your site -> tab setting -> Build & Deploy -> Edit Settings
+// Change build command to `npm run build` or if you using Netlify plugin
+// you can set it in `netlify.toml` file
+exports.onCreateWebpackConfig = ({ actions, stage }) => {
+  if (stage === 'build-javascript') {
+    actions.setWebpackConfig({
+      devtool: false
+    })
+  }
+}

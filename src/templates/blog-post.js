@@ -99,7 +99,7 @@ const BlogPost = ({ data, pageContext, location }) => {
                     />
                   </p>
                   {/* Valine comment system */}
-                  <ValineComment />
+                  <ValineComment location={location} postId={postId} />
                 </div>
               </div>
             </div>

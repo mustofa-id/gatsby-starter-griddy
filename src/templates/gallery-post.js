@@ -90,7 +90,7 @@ const GalleryPost = ({ data, pageContext, location }) => {
                     <BottomSheet pageContext={pageContext} title={title} />
                   </LoveContext.Provider>
                   {/* Valine comment system */}
-                  <ValineComment />
+                  <ValineComment location={location} postId={postId} />
                 </div>
               </div>
             </div>

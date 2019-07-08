@@ -18,7 +18,7 @@ import ValineComment from '../components/valine-comment'
 
 const paramType = 'gallery'
 
-const GalleryPost = ({ data, pageContext }) => {
+const GalleryPost = ({ data, pageContext, location }) => {
   // All fileds post
   const { excerpt, frontmatter, html, timeToRead, fields } = data.gallery
   const { title, date, tags, category, cover } = frontmatter
@@ -86,7 +86,7 @@ const GalleryPost = ({ data, pageContext }) => {
                     <BottomSheet pageContext={pageContext} title={title} />
                   </LoveContext.Provider>
                   {/* Valine comment system */}
-                  <ValineComment />
+                  <ValineComment location={location} postId={postId} />
                 </div>
               </div>
             </div>

@@ -8,7 +8,7 @@ import Category from '../components/widget/category'
 import { queryAdjustment, eqic } from '../shared/util'
 
 const masonryBreakpoint = {
-  default: 4,
+  default: 3,
   1279: 3,
   850: 2,
   500: 1
@@ -30,7 +30,10 @@ const Friend = ({ data, location }) => {
 
   return (
     <>
-      <SEO title={title} />
+      <SEO
+        title={title}
+        description='Screenshot of SSG sample of my friends on the community'
+      />
       <header>
         <Navbar title={title} subtitle={query && `@${query}`}>
           <Category categories={engines} type='friend' />
@@ -47,8 +50,8 @@ const Friend = ({ data, location }) => {
                     name={p.name}
                     desc={p.description}
                     url={p.siteUrl}
-                    avatar={p.avatar}
-                    backdrop={p.backdrop}
+                    screenshot={p.screenshot}
+                    profilepic={p.profilepic}
                     engine={p.siteEngine}
                   />
                 ))}
@@ -62,24 +65,39 @@ const Friend = ({ data, location }) => {
   )
 }
 
-const FriendItem = ({ name, desc, url, avatar, backdrop, engine }) => (
-  <a href={url} target='_blank' rel='noopener noreferrer'>
-    <div
-      className='box is-paddingless has-rounded-corner has-bg-shadow has-hover-effect'
-      style={{ marginBottom: '1rem' }}>
-      <img style={{ borderRadius: '10px 10px 0 0' }} src={avatar} alt={name} />
-      <div className='media-content' style={{ padding: '1rem' }}>
-        <div className='content'>
-          <p style={{ marginBottom: '0.5em' }}>
-            <strong>{name}</strong>
-          </p>
-          <p className='is-size-6' style={{ marginBottom: '0.5em' }}>
-            {desc}
-          </p>
-        </div>
+const FriendItem = ({ name, desc, url, screenshot, profilepic, engine }) => (
+
+  <div className='box has-bg-shadow has-rounded-corner is-paddingless has-hover-effect'
+    style={{ marginBottom: '1rem' }}>
+    <figure className='image'>
+      <img className='coverpic' src={screenshot} alt={name} />
+    </figure>
+    <div className='media padding-bottom-0'>
+      <div className='media-left'>
+        <figure className='image is-48x48'>
+          <img style={{ borderRadius: '5px' }} src={profilepic} alt={name} />
+        </figure>
+      </div>
+      <div className='media-content'>
+        <p>
+          <strong>{name}</strong>
+        </p>
+        <p style={{ fontSize: '14px' }}>
+          <a href={url}>{url}</a>
+        </p>
       </div>
     </div>
-  </a>
+    <div className='media-content' style={{ padding: '1rem' }}>
+      <div className='content'>
+        <p>
+          {desc}
+        </p>
+        <p className='is-size-7'>
+          SSG: {engine}
+        </p>
+      </div>
+    </div>
+  </div>
 )
 
 export const query = graphql`
@@ -89,8 +107,8 @@ export const query = graphql`
         friends {
           name
           siteUrl
-          avatar
-          backdrop
+          screenshot
+          profilepic
           description
           siteEngine
         }

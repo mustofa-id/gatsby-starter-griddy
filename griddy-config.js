@@ -39,52 +39,76 @@ exports.siteMetadata = {
   ],
   friends: [
     {
-      name: 'Goku',
-      siteUrl: 'https://link.mustofa.id/fb',
-      avatar: 'http://media.japanpowered.com/images/goku.png',
-      backdrop: '',
-      description: 'Son Goku, born Kakarot, is a male Saiyan and the main protagonist of the Dragon Ball metaseries created by Akira Toriyama.',
-      siteEngine: 'Saiyan'
+      name: 'Mustofa',
+      siteUrl: 'https://mustofa.id',
+      screenshot: 'https://cdn.staticaly.com/screenshot/mustofa.id?w=500&h=300',
+      profilepic: 'https://cdn.statically.io/img/mustofa.id/static/logo-d7ffd794e4a7a9f2c6e97e0510c45358.png',
+      description: 'I am Habib Mustofa, a Programmer from Indonesia. Typing Java and JavaScript code on Linux machine...',
+      siteEngine: 'Gatsbyjs'
     },
     {
-      name: 'Vegeta',
-      siteUrl: 'https://link.mustofa.id/fb',
-      avatar: 'https://media.comicbook.com/2018/03/vegeta3-1092181-1280x0.jpeg',
-      backdrop: '',
-      description: 'Vegeta is the prince of the fallen Saiyan race. He is the eldest son of King Vegeta, the older brother of Tarble, the husband of Bulma, the father of Trunks and Bulla, and the ancestor of Vegeta Jr.',
-      siteEngine: 'Saiyan'
+      name: 'Okitavera',
+      siteUrl: 'https://okitavera.me',
+      screenshot: 'https://cdn.staticaly.com/screenshot/okitavera.me?w=500&h=300',
+      profilepic: 'https://cdn.statically.io/img/okitavera.me/assets/img/me.png',
+      description: 'I am an Android Developer who focus on application performance and user experience...',
+      siteEngine: '11ty'
     },
     {
-      name: 'Majin Buu',
-      siteUrl: 'https://link.mustofa.id/fb',
-      avatar: 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/majin-buu-dragonball-z.jpg',
-      backdrop: '',
-      description: 'Majin Buu, generally spelled Majin Boo in subtitles of the Japanese anime, and rendered as Djinn-Boo in the Viz Media manga, is a fictional character and the final antagonist in the Dragon Ball manga series created by Akira Toriyama.',
-      siteEngine: 'Enemy'
+      name: 'Epsy RNS',
+      siteUrl: 'https://epsi-rns.gitlab.io',
+      screenshot: 'https://cdn.staticaly.com/screenshot/epsi-rns.gitlab.io?w=500&h=300',
+      profilepic: 'https://cdn.statically.io/img/epsi-rns.gitlab.io/assets/site/images/epsi-bulat.png',
+      description: 'I am an open source enthusiast. This site is mainly discuss about web development, frontend, backend, and especially SSG (static site generator)',
+      siteEngine: 'Hugo'
     },
     {
-      name: 'Frieza',
-      siteUrl: 'https://link.mustofa.id/fb',
-      avatar: 'http://pre01.deviantart.net/4496/th/pre/f/2017/207/6/8/frieza_in_the_tournament_by_zika_arts-dbhtr6c.png',
-      backdrop: '',
-      description: 'Frieza was the emperor of the universe, who controlled his own imperial army and was feared for his ruthlessness and power, but was taken out of power when he was killed by Future Trunks & Goku.',
-      siteEngine: 'Enemy'
+      name: 'Rania Amina',
+      siteUrl: 'https://raniaamina.id',
+      screenshot: 'https://cdn.staticaly.com/screenshot/raniaamina.id?w=500&h=300',
+      profilepic: 'https://cdn.statically.io/img/raniaamina.id/images/avatar.png',
+      description: 'RANIA AMINA jatuh cinta dengan dunia Free/Libre Open Source Software sejak masih duduk di bangku SMP dan sekarang mencoba untuk aktif berkontribusi di bidang FLOSS...',
+      siteEngine: 'Hexo'
     },
     {
-      name: 'Gohan',
-      siteUrl: 'https://link.mustofa.id/fb',
-      avatar: 'https://am21.akamaized.net/tms/cnt/uploads/2018/09/GohanSS2.jpg',
-      backdrop: '',
-      description: 'Gohan is the elder son of the series primary protagonist Goku and his wife Chi-Chi, the older brother of Goten, the husband of Videl and father to Pan. Gohan is the first hybrid (half-Earthling, half-Saiyan) to appear in the series. He is named after Goku\'s adoptive grandfather, Gohan.',
-      siteEngine: 'Saiyan'
+      name: 'BanditHijo',
+      siteUrl: 'https://bandithijo.com',
+      screenshot: 'https://cdn.staticaly.com/screenshot/bandithijo.com?w=500&h=300',
+      profilepic: 'https://cdn.statically.io/img/d33wubrfki0l68.cloudfront.net/4cb146f6f279bfb3a7cabc463aa27b5817845380/73aa2/assets/img/logo/logo_author.png',
+      description: 'BanditHijo adalah nama pena dari Rizqi Nur Assyaufi; seorang blogger, vlogger, dan coder yang berasal dari kota Balikpapan...',
+      siteEngine: 'Jekyll'
     },
     {
-      name: 'Mr. Satan',
-      siteUrl: 'https://link.mustofa.id/fb',
-      avatar: 'https://i.ytimg.com/vi/YMEyz3-zSI0/maxresdefault.jpg',
-      backdrop: '',
-      description: 'Mr. Satan, also known as Hercule Satan in the Funimation dub, is the World Martial Arts Champion and the Earth\'s protector. His real name is Mark.',
-      siteEngine: 'Comedian'
+      name: 'Ypraw Blog',
+      siteUrl: 'https://ypraw.github.io',
+      screenshot: 'https://cdn.staticaly.com/screenshot/ypraw.github.io?w=500&h=300',
+      profilepic: 'https://cdn.statically.io/img/d33wubrfki0l68.cloudfront.net/5b4e81bf1811f1b1f52b3e364269a0ef6b00e55b/01606/static/avatar-492ed88ed27cba96afe4309daf844026.jpg',
+      description: 'My name is Yunindyo Prabowo. Born in Jakarta 15th June 1995.',
+      siteEngine: 'Gatsbyjs'
+    },
+    {
+      name: 'Maidgirl21',
+      siteUrl: 'https://maidgirl21.github.io',
+      screenshot: 'https://cdn.staticaly.com/screenshot/maidgirl21.github.io?w=500&h=300',
+      profilepic: 'https://cdn.statically.io/img/assets.gitlab-static.net/uploads/-/system/user/avatar/3800305/avatar.png',
+      description: 'Hello, I am Yoghaswara "Yodel" Hadi Nugroho a.c.e maidgirl21, I am a Rubyist, Unix-Like Enthusiats and Rails Backend Developer...',
+      siteEngine: ' '
+    },
+    {
+      name: 'Michael IMO',
+      siteUrl: 'https://www.digimoclub.com',
+      screenshot: 'https://cdn.staticaly.com/screenshot/www.digimoclub.com?w=500&h=300',
+      profilepic: 'https://cdn.statically.io/img/www.digimoclub.com/medias/avatar.jpg',
+      description: 'Blog sederhana yang membahas tips, trick dan tutorial yang bermanfaat seputar dunia online',
+      siteEngine: 'Hexo'
+    },
+    {
+      name: "Addy's Blog",
+      siteUrl: 'https://addy-dclxvi.github.io/',
+      screenshot: 'https://cdn.staticaly.com/screenshot/addy-dclxvi.github.io?w=500&h=300',
+      profilepic: 'https://cdn.statically.io/img/addy-dclxvi.github.io/image/me.png',
+      description: 'Hi! I’m Addy! Just a student, a worker, and a Linux Enthusiast. I love metal, cat, linux, playing guitar, design, customizing desktop, more metal, reading, climbing mountain, fishing, watching movie, anime, and even more metal...',
+      siteEngine: 'Hugo'
     }
   ]
 }

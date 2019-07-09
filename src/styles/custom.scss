@@ -311,3 +311,21 @@ opacity: 1
     padding-right: 0.5rem;
   }
 }
+
+// comment box
+.comments {
+  margin-top: 2.5rem;
+}
+@media screen and (max-width: 400px) {
+.comments {
+    margin-top: 1.7rem;
+  }
+}
+
+// for box friends
+.padding-bottom-0 {
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 0;
+}

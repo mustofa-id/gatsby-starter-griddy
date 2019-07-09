@@ -18,7 +18,7 @@ const masonryBreakpoint = {
   850: 2,
   500: 1
 }
-const postLimit = 2 // limit post each page scroll
+const postLimit = 6 // limit post each page scroll
 
 const Blog = ({ data, location }) => {
   const { edges } = data.blog

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { queryType } from '../../shared/post-filter'
+import { queryType } from '../../shared/util'
 
 const Hashtag = ({ className, type, tags }) => (
   <>

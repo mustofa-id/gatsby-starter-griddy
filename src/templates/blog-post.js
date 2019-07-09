@@ -2,7 +2,6 @@ import React, { useReducer, useEffect } from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import Hashtag from '../components/widget/hashtag'
-import { queryType } from '../shared/post-filter'
 import Footer from '../components/footer'
 import Navbar from '../components/navbar'
 import SEO from '../components/seo'
@@ -12,7 +11,7 @@ import {
   fetchLoves,
   LoveContext
 } from '../store/love-reducer'
-import { hashCode } from '../shared/util'
+import { hashCode, queryType } from '../shared/util'
 import BottomSheet from '../components/widget/bottom-sheet'
 import Toast from '../components/widget/toast'
 

@@ -2,7 +2,6 @@ import React, { useEffect, useReducer } from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import Hashtag from '../components/widget/hashtag'
-import { queryType } from '../shared/post-filter'
 import Footer from '../components/footer'
 import SEO from '../components/seo'
 import Navbar from '../components/navbar'
@@ -13,7 +12,7 @@ import {
   initialState,
   fetchLoves
 } from '../store/love-reducer'
-import { hashCode } from '../shared/util'
+import { hashCode, queryType } from '../shared/util'
 import Toast from '../components/widget/toast'
 
 const paramType = 'gallery'

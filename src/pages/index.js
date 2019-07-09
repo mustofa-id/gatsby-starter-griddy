@@ -6,7 +6,7 @@ import SEO from '../components/seo'
 import IconButton from '../components/widget/icon-button'
 
 const IndexPage = ({ data }) => {
-  const { title, description, nav, social } = data.site.siteMetadata
+  const { title, description, menuHome, social } = data.site.siteMetadata
   return (
     <>
       {/* Add seo props as you wish */}
@@ -47,7 +47,7 @@ const IndexPage = ({ data }) => {
                     className='buttons is-centered'
                     style={{ marginTop: '0.8rem' }}>
                     {/* If wanna use button with icon you can use IconButton instead of Link */}
-                    {nav.map((item, index) => (
+                    {menuHome.map((item, index) => (
                       <Link
                         className='button is-light'
                         key={`${index}--${item.name}`}
@@ -111,7 +111,7 @@ export const query = graphql`
       siteMetadata {
         title
         description
-        nav: menuItemsStart {
+        menuHome {
           name
           href
           icon

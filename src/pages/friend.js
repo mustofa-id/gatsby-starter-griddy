@@ -4,6 +4,8 @@ import Masonry from '../components/widget/masonry'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 import SEO from '../components/seo'
+import Category from '../components/widget/category'
+import { queryAdjustment, eqic } from '../shared/util'
 
 const masonryBreakpoint = {
   default: 4,
@@ -13,18 +15,25 @@ const masonryBreakpoint = {
 }
 
 const Friend = ({ data, location }) => {
+  const [allowed, query] = queryAdjustment(location)
   const { friends } = data.site.siteMetadata
   const title = 'Friends'
 
-  // const engines = friends.map(f => f.siteEngine)
-  //   .filter((v, i, e) => e.indexOf(v) === i)
+  const engines = friends
+    .map(f => f.siteEngine)
+    .filter((v, i, e) => e.indexOf(v) === i)
+
+  function filterEngines (e) {
+    if (!allowed) return true
+    return eqic(e.siteEngine, query)
+  }
 
   return (
     <>
       <SEO title={title} />
       <header>
-        <Navbar title={title} >
-          {/* <Category categories={engines} type='friend' /> */}
+        <Navbar title={title} subtitle={query && `@${query}`}>
+          <Category categories={engines} type='friend' />
         </Navbar>
       </header>
       <main className='fade-in'>
@@ -32,7 +41,7 @@ const Friend = ({ data, location }) => {
           <div className='hero-body' style={{ paddingBottom: '0' }}>
             <div className='container has-text-centered'>
               <Masonry breakpoint={masonryBreakpoint}>
-                {friends.map((p, i) => (
+                {friends.filter(filterEngines).map((p, i) => (
                   <FriendItem
                     key={`${p.name}--${i}`}
                     name={p.name}
@@ -54,7 +63,7 @@ const Friend = ({ data, location }) => {
 }
 
 const FriendItem = ({ name, desc, url, avatar, backdrop, engine }) => (
-  <a href={url}>
+  <a href={url} target='_blank' rel='noopener noreferrer'>
     <div
       className='box is-paddingless has-rounded-corner has-bg-shadow has-hover-effect'
       style={{ marginBottom: '1rem' }}>

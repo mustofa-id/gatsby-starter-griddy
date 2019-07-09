@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Img from 'gatsby-image'
 import { graphql, Link } from 'gatsby'
-import { filter, queryWithType } from '../shared/post-filter'
+import { filterPosts, queryWithType } from '../shared/post-filter'
 import { edgesToCategories } from '../shared/util'
 import SEO from '../components/seo'
 import Navbar from '../components/navbar'
@@ -30,7 +30,7 @@ const Blog = ({ data, location }) => {
   const [isLoading, setLoading, isEnd, setEnd] = infiniteScroll(loadMore)
 
   // Filter post items by url query
-  const posts = filter(edges, location)
+  const posts = filterPosts(edges, location)
 
   useEffect(() => setEnd(!(limit < posts.length)), [isLoading, isEnd])
 

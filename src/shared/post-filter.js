@@ -1,7 +1,4 @@
-export const queryType = {
-  tag: 'tag',
-  category: 'category'
-}
+import { inic, eqic, queryType, queryAdjustment } from './util'
 
 export let queryWithType
 
@@ -9,30 +6,14 @@ export let queryWithType
  * Filtering items by url search params.
  * The number of search parameters matches the value of queryType.
  * For now only support queries with one search key eg. site.com/blog?tag=palette */
-export function filter (items, location) {
-  const { search } = location
-
+export function filterPosts (items, location) {
   // Reset queryWithType
   queryWithType = undefined
 
-  // Search is null or empty will return all items
-  if (!search || !search.trim()) return items
+  // Adjust the query
+  const [allowed, query, type] = queryAdjustment(location)
 
-  // Get search params from url. eg: site.com/blog `?tag=palette&tag=colors`
-  const params = new URLSearchParams(search)
-
-  // Get first key in search params. eg from sample above `tag`
-  const type = params.keys().next().value
-
-  // Only allow query from queryType
-  for (let key in queryType) {
-    if (type !== queryType[key]) {
-      return items
-    }
-  }
-
-  // Get value of search params given type. eg from sample above `palette`
-  const query = params.get(type)
+  if (!allowed) return items
 
   // Assign query with type for UI purposes. 'tag' -> '#palette' & 'category' -> @opini
   queryWithType = type === queryType.tag ? `#${query}` : `@${query}`
@@ -56,12 +37,3 @@ export function filter (items, location) {
   // No query will return all items
   return items
 }
-
-// Check array is contains value with ignoring case (includesIgnoreCase)
-const inic = (arr, val) => {
-  const regex = new RegExp(arr.join('|'), 'i')
-  return regex.test(val)
-}
-
-// Check for equality with ignoring case (equalIgnoreCase)
-const eqic = (a, b) => a.toUpperCase() === b.toUpperCase()

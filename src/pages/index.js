@@ -112,7 +112,7 @@ export const query = graphql`
     profilpic: file(relativePath: { eq: "profile.jpg" }) {
       childImageSharp {
         fluid(quality: 85) {
-          ...GatsbyImageSharpFluid_tracedSVG
+          ...GatsbyImageSharpFluid
         }
       }
     }

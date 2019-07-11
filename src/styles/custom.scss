@@ -86,13 +86,6 @@ html {
   position: relative;
 }
 
-@media screen and (min-width: 900px) {
-  .container {
-    max-width: 900px;
-    width: auto;
-  }
-}
-
 @media screen and (min-width: 1088px) {
   .container {
     max-width: 900px;

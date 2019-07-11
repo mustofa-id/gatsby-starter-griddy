@@ -16,7 +16,7 @@ exports.siteMetadata = {
     {
       name: 'Twitter',
       href: 'https://link.mustofa.id/fb',
-      icon: 'twitter'
+      icon: 'pinterest'
     },
     {
       name: 'Artstation',

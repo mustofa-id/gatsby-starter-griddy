@@ -68,9 +68,15 @@ html {
 #profile_pic {
   bottom: 4rem;
 }
-.has-padding-4 {
-  background: white;
+.is-profile {
+  border-radius: 290486px;
+}
+.is-box-profile {
+  border-radius: 290486px;
   padding: 4px;
+  -webkit-box-shadow: 0 0 0 rgba(255, 255, 255, 0.11);
+  -moz-box-shadow: 0 0 0 rgba(255, 255, 255, 0.11);
+          box-shadow: 0 0 0 rgba(255, 255, 255, 0.11);
 }
 
 // profil info
@@ -218,6 +224,8 @@ article, aside, figure, footer, header, hgroup, section {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   &:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16), 0 6px 6px rgba(0, 0, 0, 0.23);
+    -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16), 0 6px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16), 0 6px 6px rgba(0, 0, 0, 0.23);
   }
 }
 

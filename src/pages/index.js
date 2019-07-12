@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
   return (
     <>
       {/* Add seo props as you wish */}
-      <SEO />
+      <SEO image={profilpic} />
       <main className='fade-in'>
         <article className='hero is-fullheight is-light'>
           <div className='hero-body'>
@@ -25,14 +25,16 @@ const IndexPage = ({ data }) => {
                   />
                 </figure>
                 <figure
-                  // we need to add gatsby-image to this
+                  // little cheat to stylize the profilepic under gatsby-image effect
                   id='profile_pic'
                   className='image is-128x128 has-image-centered'>
-                  <img
-                    className='is-rounded has-padding-4'
-                    src={profilpic}
-                    alt='Profile'
-                  />
+                  <div className='box is-box-profile'>
+                    <Img
+                      className='is-profile'
+                      fluid={data.profilpic.childImageSharp.fluid}
+                      alt='Profile'
+                    />
+                  </div>
                 </figure>
                 <div className='profile_info'>
                   <h1 className='title is-3' style={{ marginBottom: '1.9rem' }}>
@@ -103,6 +105,13 @@ export const query = graphql`
     cover: file(relativePath: { eq: "cover.jpg" }) {
       childImageSharp {
         fluid(quality: 90) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    profilpic: file(relativePath: { eq: "profile.jpg" }) {
+      childImageSharp {
+        fluid(quality: 85) {
           ...GatsbyImageSharpFluid
         }
       }

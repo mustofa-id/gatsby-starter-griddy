@@ -14,10 +14,11 @@ import {
 import { hashCode, queryType } from '../shared/util'
 import BottomSheet from '../components/widget/bottom-sheet'
 import Toast from '../components/widget/toast'
+import { ShareButtons } from '../components/widget/share-button'
 
 const paramType = 'blog'
 
-const BlogPost = ({ data, pageContext }) => {
+const BlogPost = ({ data, pageContext, location }) => {
   // All fileds post
   const { excerpt, frontmatter, html, timeToRead, fields } = data.blog
   const { title, date, tags, category, cover } = frontmatter
@@ -88,6 +89,14 @@ const BlogPost = ({ data, pageContext }) => {
                   <LoveContext.Provider value={{ state, dispatch }}>
                     <BottomSheet pageContext={pageContext} title={title} />
                   </LoveContext.Provider>
+                  {/* Social media share */}
+                  <p className='has-text-centered'>
+                    <ShareButtons
+                      url={location.href}
+                      iconSize='24'
+                      buttonClass='is-white has-text-grey'
+                    />
+                  </p>
                 </div>
               </div>
             </div>

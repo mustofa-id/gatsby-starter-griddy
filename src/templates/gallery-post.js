@@ -14,10 +14,11 @@ import {
 } from '../store/love-reducer'
 import { hashCode, queryType } from '../shared/util'
 import Toast from '../components/widget/toast'
+import { ShareButtons } from '../components/widget/share-button'
 
 const paramType = 'gallery'
 
-const GalleryPost = ({ data, pageContext }) => {
+const GalleryPost = ({ data, pageContext, location }) => {
   // All fileds post
   const { excerpt, frontmatter, html, timeToRead, fields } = data.gallery
   const { title, date, tags, category, cover } = frontmatter
@@ -84,6 +85,14 @@ const GalleryPost = ({ data, pageContext }) => {
                   <LoveContext.Provider value={{ state, dispatch }}>
                     <BottomSheet pageContext={pageContext} title={title} />
                   </LoveContext.Provider>
+                  {/* Social media share */}
+                  <p className='has-text-centered'>
+                    <ShareButtons
+                      url={location.href}
+                      iconSize='24'
+                      buttonClass='is-white has-text-grey'
+                    />
+                  </p>
                 </div>
               </div>
             </div>

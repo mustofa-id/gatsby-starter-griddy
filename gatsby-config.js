@@ -58,6 +58,16 @@ module.exports = {
             }
           },
           {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false
+            }
+          },
+          {
             // https://www.gatsbyjs.org/packages/gatsby-remark-copy-linked-files/
             resolve: 'gatsby-remark-copy-linked-files',
             options: {

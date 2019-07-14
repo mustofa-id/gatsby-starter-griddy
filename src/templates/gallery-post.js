@@ -42,7 +42,10 @@ const GalleryPost = ({ data, pageContext, location }) => {
           backTo={`/${paramType}`}
           title={category}
           subtitle={`· ${timeToRead} min read`}
-        />
+          burgerIcon='share-2'>
+          {/* Social media share */}
+          <ShareButtons url={location.href} />
+        </Navbar>
       </header>
       <main>
         <div className='hero is-light'>
@@ -85,14 +88,6 @@ const GalleryPost = ({ data, pageContext, location }) => {
                   <LoveContext.Provider value={{ state, dispatch }}>
                     <BottomSheet pageContext={pageContext} title={title} />
                   </LoveContext.Provider>
-                  {/* Social media share */}
-                  <p className='has-text-centered'>
-                    <ShareButtons
-                      url={location.href}
-                      iconSize='24'
-                      buttonClass='is-white has-text-grey'
-                    />
-                  </p>
                 </div>
               </div>
             </div>

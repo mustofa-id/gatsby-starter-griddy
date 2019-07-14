@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import Icon from './widget/icon'
 
-const BurgerButton = ({ onClick, isActive }) => (
+const BurgerButton = ({ onClick, isActive, burgerIcon }) => (
   <div
     onClick={onClick}
     role='button'
@@ -12,13 +12,25 @@ const BurgerButton = ({ onClick, isActive }) => (
     aria-label='menu'
     aria-expanded='false'
     data-target='griddy-nav-menu'>
-    <span aria-hidden='true' />
-    <span aria-hidden='true' />
-    <span aria-hidden='true' />
+    {burgerIcon ? (
+      <div className='column is-vcentered'>
+        <Icon
+          name={burgerIcon}
+          size='24'
+          color='#0a0a0a'
+          strokeWidth='1' />
+      </div>
+    ) : (
+      <>
+        <span aria-hidden='true' />
+        <span aria-hidden='true' />
+        <span aria-hidden='true' />
+      </>
+    )}
   </div>
 )
 
-const Navbar = ({ backTo = '/', title, subtitle, children }) => {
+const Navbar = ({ backTo = '/', title, subtitle, children, burgerIcon }) => {
   const [menuShown, setMenuShown] = useState(false)
 
   function toggleMenu () {
@@ -47,7 +59,7 @@ const Navbar = ({ backTo = '/', title, subtitle, children }) => {
             </div>
             {/* Burger button */}
             {children ? (
-              <BurgerButton onClick={toggleMenu} isActive={menuShown} />
+              <BurgerButton onClick={toggleMenu} isActive={menuShown} burgerIcon={burgerIcon} />
             ) : null}
           </div>
           <div

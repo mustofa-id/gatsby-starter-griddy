@@ -1,6 +1,7 @@
 export const queryType = {
   tag: 'tag',
-  category: 'category'
+  category: 'category',
+  search: 'q'
 }
 
 export const queryAdjustment = location => {

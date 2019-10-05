@@ -35,7 +35,7 @@ const Friend = ({ data, location }) => {
         description='Screenshot of SSG sample of my friends on the community'
       />
       <header>
-        <Navbar title={title} subtitle={query && `@${query}`}>
+        <Navbar title={title} subtitle={query && `@${query}`} burgerIcon='more'>
           <Category categories={engines} type='friend' />
         </Navbar>
       </header>

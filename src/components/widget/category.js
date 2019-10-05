@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { queryType } from '../../shared/util'
+import Icon from './icon'
 
 const ALL_POST = 'All'
 
@@ -10,7 +11,12 @@ const Category = ({ categories, type }) => {
   return (
     <div className='navbar-end'>
       <div className='navbar-item has-dropdown is-hoverable'>
-        <p className='navbar-link'>Categories</p>
+        <p className='navbar-link is-arrowless navbar-hidden'>
+          <Icon
+            name='more'
+            size='22'
+            strokeWidth='1.5px' />
+        </p>
         <div className='navbar-dropdown is-right'>
           {allCategories.map((e, i) => {
             return (

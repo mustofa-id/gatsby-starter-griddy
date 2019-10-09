@@ -52,7 +52,7 @@ const Gallery = ({ data, location }) => {
     <>
       <SEO title={title} />
       <header>
-        <Navbar title={title} subtitle={subtitle}>
+        <Navbar title={title} subtitle={subtitle} burgerIcon='more'>
           <Category categories={categories} type='gallery' />
         </Navbar>
       </header>

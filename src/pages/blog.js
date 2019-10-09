@@ -52,7 +52,7 @@ const Blog = ({ data, location }) => {
     <>
       <SEO title={title} />
       <header>
-        <Navbar title={title} subtitle={subtitle}>
+        <Navbar title={title} subtitle={subtitle} burgerIcon='more'>
           <Category categories={categories} type='blog' />
         </Navbar>
       </header>

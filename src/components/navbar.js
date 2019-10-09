@@ -13,12 +13,16 @@ const BurgerButton = ({ onClick, isActive, burgerIcon }) => (
     aria-expanded='false'
     data-target='griddy-nav-menu'>
     {burgerIcon ? (
-      <div className='column is-vcentered'>
+      <div
+        className='column'
+        style={{ marginTop: '1.8px' }}>
+        {/* need to vertical center */}
         <Icon
           name={burgerIcon}
+          style={{ display: 'block', margin: '0 auto' }}
           size='24'
           color='#0a0a0a'
-          strokeWidth='1' />
+          strokeWidth='1.2px' />
       </div>
     ) : (
       <>

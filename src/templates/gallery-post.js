@@ -41,8 +41,7 @@ const GalleryPost = ({ data, pageContext, location }) => {
         <Navbar
           backTo={`/${paramType}`}
           title={category}
-          subtitle={`· ${timeToRead} min read`}
-          burgerIcon='share-2'>
+          subtitle={`· ${timeToRead} min read`}burgerIcon='share-2'>
           {/* Social media share */}
           <ShareButtons url={location.href} />
         </Navbar>

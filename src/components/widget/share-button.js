@@ -12,12 +12,22 @@ const links = {
 export const ShareButtons = ({ url }) => (
   <div className='navbar-end'>
     <div className='navbar-item has-dropdown is-hoverable'>
-      <p className='navbar-link'>Share</p>
+      <p className='navbar-link is-arrowless navbar-hidden'>
+        <Icon
+          name='share-2'
+          size='24'
+          strokeWidth='1.2px' />
+      </p>
       <div className='navbar-dropdown is-right'>
         {Object.keys(links).map((k, i) => (
-          <a className='navbar-item' key={`${k}--${i}`} href={links[k] + url}>
+          <a className='navbar-item'
+            key={`${k}--${i}`}
+            href={links[k] + url}
+            target='_blank'
+            rel='nofollow noopener noreferrer'
+            aria-label='Share'>
             <span className='icon'>
-              <Icon name={k} size='16' />
+              <Icon name={k} size='.8rem' />
             </span>
             <span>{k.replace(/./, x => x.toUpperCase())}</span>
           </a>

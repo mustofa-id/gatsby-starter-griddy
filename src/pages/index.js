@@ -7,6 +7,11 @@ import IconButton from '../components/widget/icon-button'
 
 const IndexPage = ({ data }) => {
   const { title, description, menuHome, social } = data.site.siteMetadata
+
+  function isLoading (e) {
+    e.target.classList.add('is-loading')
+  }
+
   return (
     <>
       {/* Add seo props as you wish */}
@@ -51,6 +56,7 @@ const IndexPage = ({ data }) => {
                     {/* If wanna use button with icon you can use IconButton instead of Link */}
                     {menuHome.map((item, index) => (
                       <Link
+                        onClick={isLoading}
                         className='button is-light'
                         key={`${index}--${item.name}`}
                         to={item.href}>

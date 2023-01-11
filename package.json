@@ -23,7 +23,7 @@
     "gatsby-remark-images-medium-zoom": "^1.2.1",
     "gatsby-remark-prismjs": "^3.3.3",
     "gatsby-source-filesystem": "^2.1.1",
-    "gatsby-transformer-remark": "^2.6.4",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.2.0",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
